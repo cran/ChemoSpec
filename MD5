@@ -1,6 +1,6 @@
-21441295976283f21c7a515ba2a5ece6 *DESCRIPTION
+12a9675a505fbaf9c0238d11dda6a470 *DESCRIPTION
 5f59110dd9a4111c4666738e2b45dcac *NAMESPACE
-2c9b57645b758a042ec964e839a3dd2f *NEWS
+b7e9e2584f4f42d1c5c322016fe99ae6 *NEWS
 3ae2253698c32dfa53b9c0dd34837762 *R/LoopThruSpectra.R
 4ae058846a40b54abaa097f4a9963f8a *R/aovPCA.R
 77a924192d8292fd8cd7a3c6754a31d8 *R/aovPCAloadings.R
@@ -14,8 +14,8 @@ af499599b98ddf55a0d24a7c3e10b204 *R/check4Gaps.R
 5964fda0fcc59f1680aa5417e95986f1 *R/classPCA.R
 eb5b5ca0c6de00a2e9cda7dcf53ac8f2 *R/colLeaf.R
 10c0861991d97458bab3f723c0d3105b *R/conColScheme.R
-d9adaa78b1e61e0de1bdf85b6bf09cc0 *R/coordProjCS.R
-8e1f1a1cb257bf83e914f9514c33fb2c *R/getManyCsv.R
+2d404ff4fe9649a57a3cc836c8f84041 *R/coordProjCS.R
+264237356148d86b6aa06258a88838a6 *R/getManyCsv.R
 6cacc46c062f6c7d7b16be3d470533fa *R/groupNcolor.R
 cf50c79c0349baf092934c0fc7dbe831 *R/hcaScores.R
 27540f7a95878a5904cc4f8611c01a86 *R/hcaSpectra.R
@@ -61,8 +61,8 @@ e481e6cbfddcb21437b909ec4f1d47e8 *R/seXy95.R
 cdf5383112d1287ef91b355bd23fd89d *R/specSurvey.R
 b44b0854a23eab60d78bd6ead4883298 *R/splitSpectraGroups.R
 4d341880c15e39572d55e7496107970c *R/sumGroups.R
-3408cc086126eb64d59db265f0694c37 *R/sumSpectra.R
-f6d192d90639d1e813fd5e9e4383c985 *README.asciidoc
+44d90dc70aa62d9efac6810655e383a4 *R/sumSpectra.R
+bdbbea2afe817579e66ee9c20b5d83ef *README.asciidoc
 dcc7b75095819097e27a7a8f33cedea8 *data/CuticleIR.RData
 9ebd62cad821c5ba60401ce40b9ee1ce *data/SrE.IR.RData
 a7bb0c5c24e8fed1cb5e6ac1bcee6ce5 *data/SrE.NMR.RData
@@ -70,7 +70,7 @@ a7bb0c5c24e8fed1cb5e6ac1bcee6ce5 *data/SrE.NMR.RData
 7e6ace6d723a7348dffca3993854a986 *inst/CITATION
 f9275d568ab54d8dc588fcf9839de75b *inst/doc/ChemoSpec.Rnw
 40f83598cf0b509d6c84c710671d4cc4 *inst/doc/ChemoSpec.pdf
-b9f1b8a5e2abea0ad3066578e3180adc *man/ChemoSpec-package.Rd
+e1420f5793a2eef569d73eec1ae56623 *man/ChemoSpec-package.Rd
 aacbb9e49bea49354b98a8b69b1961e2 *man/CuticleIR.Rd
 3bdcbce04e1d4995f2314fb8de63143f *man/LoopThruSpectra.Rd
 aad7092cd5ffaf2b8ea06cac5e1442c6 *man/Spectra.Rd
@@ -89,7 +89,7 @@ fe9883d6fa6c7d6f78e7a1d092e85a75 *man/baselineSpec.Rd
 31224cfe070469bf6328aec359b78a2c *man/colorSymbol.Rd
 9e7168bbd1e1dbc0ee25068e413aa12f *man/conColScheme.Rd
 8a0bd325a8dd2656d721d08c390e796a *man/coordProjCS.Rd
-26b5c7ab96209cb54fc6366d0a9622ef *man/getManyCsv.Rd
+4750658fc832a909355876249241ed38 *man/getManyCsv.Rd
 790e89b3d157c0c80c31d8da97654fa0 *man/groupNcolor.Rd
 c4070df53384a7a94f6d44fb2e3a4d2e *man/hcaScores.Rd
 8b53c8c61de67a9b653adfc5f9e01450 *man/hcaSpectra.Rd
@@ -128,4 +128,4 @@ d2eed45602d0a89d3e0c1a51bc228f94 *man/sPlotSpectra.Rd
 ebbc1cc53b8a4d27528f781c857887aa *man/specSurvey.Rd
 1ea9ed160bae1076925069153a735140 *man/splitSpectraGroups.Rd
 6f1b3eeaf3d22867f38af8014c13b0c9 *man/sumGroups.Rd
-1ac09d263f35e19fd3bd01041c5c0249 *man/sumSpectra.Rd
+ba2b801977db3e78f85ad87acb986a6c *man/sumSpectra.Rd
