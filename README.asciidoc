@@ -1,3 +1,5 @@
+NOTE:  This development version of ChemoSpec requires mclust 4.0 which is not widely available.  It is expected on CRAN by the end of July.
+
 How to install ChemoSpec
 =======================
 
@@ -25,6 +27,6 @@ library("ChemoSpec")
 To get to the Vignette:
 -----------------------
 
-As of v 1.50-1, the vignette is no longer built automatically.  To get to it, you have to first ask for help on the package with > ?ChemoSpec, then follow the 'index' link at the very bottom, then follow the 'browse directory' link at the top of the index page.
+vignette("ChemoSpec")
 
 Questions?  hanson@depauw.edu
