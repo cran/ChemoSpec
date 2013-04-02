@@ -4,6 +4,30 @@ Exploratory Chemometrics for Spectroscopy
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: http://academic.depauw.edu/~hanson/ChemoSpec/ChemoSpec.html
 
+##### Version 1.60-4
+Date: 2 April 2013
+>> Fix hypTestScores for CRAN; remove attach/detach.
+
+##### Version 1.60-3
+Date: 29 March 2013
+>> Ready for R 3.0.0
+>> Devel version merged in
+>> Removed Suggests: rggobi
+
+##### Version 1.60-2
+Date: 4 Feb 2013 (Devel version on Github)
+>> Various documentation tweaks and improvement to github site.
+>> Removed plotScoresG due to continuing lack of universal ggobi availability.
+>> Built using R 3.0 RC
+
+##### Version 1.60-1
+Date: 28 Dec 2012 (Devel version on Github)
+>> Added function readJDX which can read the IR implementation of the JCAMP-DX standard.
+>> Added function readBrukerTxt which can read NMR txt files from Bruker instruments.
+>> Added function files2SpectraObject which is a greatly enhanced means of importing more spectral formats.
+>> Added functions calcSN and findTMS which work with the above functions.
+>> Modified getManyCsv so that it warns about deprecation when run.
+
 ##### Version 1.51-2
 Date:
 >> Added ... to sumSpectra so one can pass argument tol through to check4Gaps.  Otherwise, for some data sets a gap is detected between each data point, which is annoying at best.

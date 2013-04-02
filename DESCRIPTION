@@ -1,8 +1,8 @@
 Package: ChemoSpec
 Type: Package
 Title: Exploratory Chemometrics for Spectroscopy
-Version: 1.51-2
-Date: 2012-8-10
+Version: 1.60-4
+Date: 2013-04-02
 Author: Bryan A. Hanson DePauw University, Greencastle Indiana USA
 Maintainer: Bryan A. Hanson <hanson@depauw.edu>
 Description: A collection of functions for plotting spectra (NMR, IR
@@ -17,10 +17,10 @@ License: GPL-3
 Depends: R (>= 2.10)
 Imports: pls, seriation, amap, chemometrics, robustbase, RColorBrewer,
         plyr, pcaPP, mvtnorm, mvoutlier, lattice, grid, rgl, R.utils,
-        mclust, MASS, baseline, IDPmisc
-Suggests: rggobi
+        mclust, MASS, baseline, IDPmisc, gsubfn
 URL: http://academic.depauw.edu/~hanson/ChemoSpec/ChemoSpec.html
 ByteCompile: TRUE
-Packaged: 2012-08-10 15:03:51 UTC; bryanhanson
+Packaged: 2013-04-02 11:19:17 UTC; bryanhanson
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2012-08-10 15:35:59
+Date/Publication: 2013-04-02 14:58:40
