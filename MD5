@@ -1,6 +1,6 @@
-ccde21c3d5680d519fc63a33fcbca9fe *DESCRIPTION
-025ef4f9f74158337fc1da9ad3cc83e2 *NAMESPACE
-7266c2a3cb9d1a892ab3ab8a62421f65 *NEWS
+7ed8750aeac3a7e7431390afc2c58c17 *DESCRIPTION
+191d1f5dae3133be8a572ab88ae48e29 *NAMESPACE
+c80a32dc3dd556d8aba11d3d76ee26e3 *NEWS
 3ae2253698c32dfa53b9c0dd34837762 *R/LoopThruSpectra.R
 4ae058846a40b54abaa097f4a9963f8a *R/aovPCA.R
 77a924192d8292fd8cd7a3c6754a31d8 *R/aovPCAloadings.R
@@ -11,7 +11,7 @@ bdc4d03423183f5be2f4f758bccb6b35 *R/baselineSpec.R
 89c7956cb31e166943f7eea3dbd99759 *R/binData.R
 84943046396ce55da52490643f37fc11 *R/calcSN.R
 af499599b98ddf55a0d24a7c3e10b204 *R/check4Gaps.R
-bfa70e3b77def778efd13dce2a5b5846 *R/chkSpectra.R
+2d66fe29610bb757b5089d5b62f52da3 *R/chkSpectra.R
 5964fda0fcc59f1680aa5417e95986f1 *R/classPCA.R
 eb5b5ca0c6de00a2e9cda7dcf53ac8f2 *R/colLeaf.R
 10c0861991d97458bab3f723c0d3105b *R/conColScheme.R
@@ -49,7 +49,7 @@ ac0a143d5d6546c16ca1942bf6998204 *R/plotScree2.R
 3517e3c76f182268cdd781ff50cda7e9 *R/q2rPCA.R
 85030519fedfed3525ff517c66007c51 *R/r2qPCA.R
 757019dc7430254da7540d3e92306a77 *R/readBrukerTxt.R
-a74c656153d7daf87857d20117b9ba5d *R/readJDX.R
+acbb231eebabd5d3400be13b04a42bea *R/readJDX.R
 378c7b74776316a14ac5c28231a5ee1d *R/removeFreq.R
 3a47519f489665c0061205b84bb2af72 *R/removeGroup.R
 4ce9ecafdc62202b801b67c0c4ccc699 *R/removeSample.R
@@ -72,10 +72,10 @@ dcc7b75095819097e27a7a8f33cedea8 *data/CuticleIR.RData
 a7bb0c5c24e8fed1cb5e6ac1bcee6ce5 *data/SrE.NMR.RData
 4c59a22c74b7848c85368fd64a66777f *data/datalist
 7e6ace6d723a7348dffca3993854a986 *inst/CITATION
-068ba6f1123f45c355c47fce75461467 *inst/doc/ChemoSpec.R
-f9275d568ab54d8dc588fcf9839de75b *inst/doc/ChemoSpec.Rnw
-40f83598cf0b509d6c84c710671d4cc4 *inst/doc/ChemoSpec.pdf
-e1510a602b3cba44717b3e465f70bc86 *man/ChemoSpec-package.Rd
+6e42666282d730571ef0aaf4ca017207 *inst/doc/ChemoSpec.R
+726ac2b3294a813b89eb7b5672cd7e42 *inst/doc/ChemoSpec.Rnw
+501d1bd819ffd36f9f9e1cd89f176648 *inst/doc/ChemoSpec.pdf
+a987fcd52623c2689cbf80594735be99 *man/ChemoSpec-package.Rd
 aacbb9e49bea49354b98a8b69b1961e2 *man/CuticleIR.Rd
 3bdcbce04e1d4995f2314fb8de63143f *man/LoopThruSpectra.Rd
 aad7092cd5ffaf2b8ea06cac5e1442c6 *man/Spectra.Rd
@@ -129,7 +129,7 @@ b66ff01926a088c325af5236d5361ac2 *man/readBrukerTxt.Rd
 838e3fc84467aee24bd99501b3b2e906 *man/readJDX.Rd
 c64b2b9b4bcf575971ae41b5ba324bcc *man/removeFreq.Rd
 f7f1122b04e152200b59dda094bb13b2 *man/removeSample.Rd
-94cd10635fefd343b095573ae9afaffc *man/robPCA.Rd
+b3d6a4fc9ca6d6081ed55853db152e5a *man/robPCA.Rd
 45c22f67e374c9877ad7e0625a81870e *man/rowDist.Rd
 4a3a951e79c6de1964b2fa8cd2603485 *man/sPlotSpectra.Rd
 456293cb708276bde3146924ec79b6d8 *man/seXy.Rd
@@ -138,3 +138,7 @@ ebbc1cc53b8a4d27528f781c857887aa *man/specSurvey.Rd
 1ea9ed160bae1076925069153a735140 *man/splitSpectraGroups.Rd
 6f1b3eeaf3d22867f38af8014c13b0c9 *man/sumGroups.Rd
 ba2b801977db3e78f85ad87acb986a6c *man/sumSpectra.Rd
+726ac2b3294a813b89eb7b5672cd7e42 *vignettes/ChemoSpec.Rnw
+4dc9da982f0d71c252b57729d4af5692 *vignettes/aovPCA1.pdf
+8e5f15d886e694abf8d1fc7453206adf *vignettes/aovPCA2.pdf
+5d3062dcc965afb7f1496e06045ee93f *vignettes/chemometrics.bib
