@@ -1,6 +1,6 @@
-7ed8750aeac3a7e7431390afc2c58c17 *DESCRIPTION
+0004a3502f2c8c65b508e8ebf3e1d684 *DESCRIPTION
 191d1f5dae3133be8a572ab88ae48e29 *NAMESPACE
-c80a32dc3dd556d8aba11d3d76ee26e3 *NEWS
+a30e3938bb98701e836a2ea20ed1828d *NEWS
 3ae2253698c32dfa53b9c0dd34837762 *R/LoopThruSpectra.R
 4ae058846a40b54abaa097f4a9963f8a *R/aovPCA.R
 77a924192d8292fd8cd7a3c6754a31d8 *R/aovPCAloadings.R
@@ -74,8 +74,8 @@ a7bb0c5c24e8fed1cb5e6ac1bcee6ce5 *data/SrE.NMR.RData
 7e6ace6d723a7348dffca3993854a986 *inst/CITATION
 6e42666282d730571ef0aaf4ca017207 *inst/doc/ChemoSpec.R
 726ac2b3294a813b89eb7b5672cd7e42 *inst/doc/ChemoSpec.Rnw
-501d1bd819ffd36f9f9e1cd89f176648 *inst/doc/ChemoSpec.pdf
-a987fcd52623c2689cbf80594735be99 *man/ChemoSpec-package.Rd
+e7ff744cfb4458fd61ad10ba435b46ce *inst/doc/ChemoSpec.pdf
+10c0116c0758b012eed858186b3777ab *man/ChemoSpec-package.Rd
 aacbb9e49bea49354b98a8b69b1961e2 *man/CuticleIR.Rd
 3bdcbce04e1d4995f2314fb8de63143f *man/LoopThruSpectra.Rd
 aad7092cd5ffaf2b8ea06cac5e1442c6 *man/Spectra.Rd
