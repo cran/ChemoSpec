@@ -7,7 +7,6 @@
 
 rm(list = ls())
 options(width =  50, show.signif.stars = FALSE)
-#if (!file.exists("graphics")) dir.create("graphics")
 
 suppressMessages(library("knitr"))
 suppressMessages(library("ChemoSpec"))
@@ -20,9 +19,6 @@ vers <- paste("(Package Version ", desc$Version, ")", sep = "")
 
 # Stuff specifically for knitr:
 
-#Sys.setenv(PATH = paste('/usr/texbin', Sys.getenv('PATH'), sep = ':'))
-
-#bd <- paste(getwd(), "graphics", sep = "/")
 opts_chunk$set(out.width = "0.8\\textwidth", fig.align = "center", fig.width = 7, fig.height = 7, cache = FALSE)
 
 # Note: defaults are eval = TRUE, echo = TRUE
