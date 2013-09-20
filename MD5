@@ -1,6 +1,6 @@
-3a2c60cb9445e293e2dc3c468f47403e *DESCRIPTION
+4cc6bfe496d63424c3c52b02e142f152 *DESCRIPTION
 191d1f5dae3133be8a572ab88ae48e29 *NAMESPACE
-4c759c12ceed1bf7886c02e4620ea445 *NEWS
+a31ff8b6bf16521b8d3d8d130e1021d7 *NEWS
 3ae2253698c32dfa53b9c0dd34837762 *R/LoopThruSpectra.R
 4ae058846a40b54abaa097f4a9963f8a *R/aovPCA.R
 77a924192d8292fd8cd7a3c6754a31d8 *R/aovPCAloadings.R
@@ -66,15 +66,16 @@ cdf5383112d1287ef91b355bd23fd89d *R/specSurvey.R
 b44b0854a23eab60d78bd6ead4883298 *R/splitSpectraGroups.R
 4d341880c15e39572d55e7496107970c *R/sumGroups.R
 44d90dc70aa62d9efac6810655e383a4 *R/sumSpectra.R
+5473b24f9e9847e12d1ffb359952fc12 *build/vignette.rds
 dcc7b75095819097e27a7a8f33cedea8 *data/CuticleIR.RData
 9ebd62cad821c5ba60401ce40b9ee1ce *data/SrE.IR.RData
 a7bb0c5c24e8fed1cb5e6ac1bcee6ce5 *data/SrE.NMR.RData
 4c59a22c74b7848c85368fd64a66777f *data/datalist
 7e6ace6d723a7348dffca3993854a986 *inst/CITATION
 72c7fe1dbd0279b51103350d138ed178 *inst/doc/ChemoSpec.R
-838fc15c92f62e76186303a64ff856e4 *inst/doc/ChemoSpec.Rnw
-f35a976754d2f9a11a5e867321db20e7 *inst/doc/ChemoSpec.pdf
-f01ceba39e0bb2307de98b9763f27516 *man/ChemoSpec-package.Rd
+45267298f523daaaf2fd23af4849cf99 *inst/doc/ChemoSpec.Rnw
+8ba1d3fbea5e0f1062f0ea56ff870e67 *inst/doc/ChemoSpec.pdf
+451a56a30c3ca1f547bf7725bb214c92 *man/ChemoSpec-package.Rd
 aacbb9e49bea49354b98a8b69b1961e2 *man/CuticleIR.Rd
 3bdcbce04e1d4995f2314fb8de63143f *man/LoopThruSpectra.Rd
 aad7092cd5ffaf2b8ea06cac5e1442c6 *man/Spectra.Rd
@@ -137,7 +138,7 @@ ebbc1cc53b8a4d27528f781c857887aa *man/specSurvey.Rd
 1ea9ed160bae1076925069153a735140 *man/splitSpectraGroups.Rd
 6f1b3eeaf3d22867f38af8014c13b0c9 *man/sumGroups.Rd
 ba2b801977db3e78f85ad87acb986a6c *man/sumSpectra.Rd
-838fc15c92f62e76186303a64ff856e4 *vignettes/ChemoSpec.Rnw
+45267298f523daaaf2fd23af4849cf99 *vignettes/ChemoSpec.Rnw
 4dc9da982f0d71c252b57729d4af5692 *vignettes/aovPCA1.pdf
 8e5f15d886e694abf8d1fc7453206adf *vignettes/aovPCA2.pdf
 5d3062dcc965afb7f1496e06045ee93f *vignettes/chemometrics.bib
