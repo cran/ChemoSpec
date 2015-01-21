@@ -15,6 +15,7 @@ suppressMessages(library("sna"))
 
 desc <- packageDescription("ChemoSpec")
 vers <- paste("(Package Version ", desc$Version, ")", sep = "")
+#vers <- paste("R package version", meta$Version)
 
 # Stuff specifically for knitr:
 
@@ -26,34 +27,26 @@ opts_chunk$set(out.width = "0.8\\textwidth", fig.align = "center", fig.width = 7
 #  source("My_First_ChemoSpec.R")
 
 ## ----Chunk2,  results = "hide", eval = FALSE----
-#  getManyCsv(gr.crit = c("sspA", "sspB"), gr.cols = c("red3", "dodgerblue4"),
+#  files2SpectraObject(gr.crit = c("sspA", "sspB"), gr.cols = c("red3", "dodgerblue4"),
 #  freq.unit = "ppm", int.unit = "peak intensity", descrip = "Subspecies Study",
 #  out.file = "subspecies")
 
 ## ----Chunk3,  results = "hide", eval = FALSE----
 #  SubspeciesNMR <- loadObject("subspecies.RData")
 
-## ----Chunk4,  echo = FALSE, fig.width = 6, fig.height = 4, fig.cap = "\\label{colors}Recommended Color Sets in ChemoSpec"----
-par(mfrow = c(2,1), mar = c(3, 1, 2, 1))
-display.brewer.pal(8, "Set1")
-title(main = "ChemoSpec Primary Scheme")
-display.brewer.pal(8, "Set2")
-title(main = "ChemoSpec Pastel Scheme")
-par(mfrow = c(1,1))
-
 ## ----Chunk5, echo = TRUE------------------------
 data(SrE.IR) # makes the data available
 sumSpectra(SrE.IR)
 
 ## ----Chunk8, fig.cap = "\\label{plot}Plotting Spectra"----
-# We'll make a fancy proper title just this once!
+# We'll make a fancy title here and re-use in other plots
 myt <- expression(bolditalic(Serenoa)~bolditalic(repens)~bold(Extract~IR~Spectra))
 plotSpectra(SrE.IR, main = myt,
 which = c(1, 2, 14, 16),
 yrange = c(0, 1.6), offset = 0.4, lab.pos = 2200)
 
 ## ----Chunk10, fig.cap = "\\label{subplot}Zooming in on a Spectral Region"----
-plotSpectra(SrE.IR, main = "S. repens IR Spectra: Detail of Carbonyl Region",
+plotSpectra(SrE.IR, main = myt,
 which = c(1, 2, 14, 16), xlim = c(1650, 1800),
 yrange = c(0, 0.6), offset = 0.1, lab.pos = 1775)
 
@@ -61,30 +54,40 @@ yrange = c(0, 0.6), offset = 0.1, lab.pos = 1775)
 SrE.IR$names # suitable if there are not many spectra
 grep("OO", SrE.IR$names) # use if there are more spectra
 
+## ----Chunk17, eval = FALSE, echo = TRUE---------
+#  not_wanted <- normSpectra(SrE.IR)
+
+## ----Chunk18------------------------------------
+tmp <- binBuck(SrE.IR, bin.ratio = 4)
+sumSpectra(tmp)
+
+## ----Chunk10b, fig.cap = "\\label{baseline}Correcting baseline drift"----
+SrE2.IR <- baselineSpec(SrE.IR, int = FALSE, method = "rfbaseline", retC = TRUE)
+
 ## ----Chunk11------------------------------------
-noTD <- removeSample(SrE.IR, rem.sam = c("TD_adSrE"))
+noTD <- removeSample(SrE2.IR, rem.sam = c("TD_adSrE"))
 sumSpectra(noTD)
 grep("TD_adSrE", noTD$names)
 
 ## ----Chunk12------------------------------------
-SrE <- grep("SrE", SrE.IR$names)
-SrE.IR$names[SrE] # gives the name(s) that contain "SrE"
+SrE <- grep("SrE", SrE2.IR$names)
+SrE2.IR$names[SrE] # gives the name(s) that contain "SrE"
 SrE # gives the corresponding indicies
-
-## ----Chunk10b, fig.cap = "\\label{baseline}Correcting baseline drift"----
-SrE2.IR <- baselineSpec(SrE.IR, int = FALSE, method = "rfbaseline", retC = TRUE)
 
 ## ----Chunk14,  fig.width = 8, fig.height = 5, fig.cap = "\\label{surv}Checking for Regions of No Interest"----
 specSurvey(SrE2.IR, method = "iqr", main = "S. repens Extract IR Spectra", by.gr = FALSE)
 
 ## ----Chunk14a, fig.cap = "\\label{survA}Detail of Carbonyl Region"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region", by.gr = FALSE, xlim = c(1650, 1800))
+specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
+by.gr = FALSE, xlim = c(1650, 1800))
 
 ## ----Chunk14b, fig.cap = "\\label{survB}Detail of Carbonyl Region by Group"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region", by.gr = TRUE, xlim = c(1650, 1800))
+specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
+by.gr = TRUE, xlim = c(1650, 1800))
 
 ## ----Chunk14c, fig.cap = "\\label{survC}Inspection of an Uninteresting Spectral Region"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Empty Region", by.gr = FALSE, xlim = c(1800, 2500))
+specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Empty Region",
+by.gr = FALSE, xlim = c(1800, 2500), ylim = c(0.0, 0.05))
 
 ## ----Chunk15------------------------------------
 SrE3.IR <- removeFreq(SrE2.IR, rem.freq = SrE2.IR$freq > 1800 & SrE2.IR$freq < 2500)
@@ -93,15 +96,8 @@ sumSpectra(SrE3.IR)
 ## ----Chunk7, fig.cap = "\\label{gaps}Procedure to Find Gaps in a Data Set" , tidy = FALSE----
 check4Gaps(SrE3.IR$freq, SrE3.IR$data[1,], plot = TRUE)
 
-## ----Chunk17, eval = FALSE, echo = TRUE---------
-#  SrE3.IR <- normSpectra(SrE3.IR)
-
-## ----Chunk18------------------------------------
-tmp <- binBuck(SrE3.IR, bin.ratio = 4)
-sumSpectra(tmp)
-
 ## ----Chunk19, fig.cap = "\\label{hca}Hierarchical Cluster Analysis"----
-hcaSpectra(SrE3.IR, main = "S. repens IR Spectra")
+HCA <- hcaSpectra(SrE3.IR, main = "S. repens IR Spectra")
 
 ## ----Chunk10a, fig.cap = "\\label{classPCA}Classical PCA"----
 class <- classPCA(SrE3.IR, choice = "noscale")
@@ -135,9 +131,6 @@ out <- pcaBoot(SrE3.IR, pcs = 5, choice = "noscale")
 ## ----Chunk27, fig.cap = "\\label{s3D}Plotting Scores in 3D using plotScores3D"----
 plotScores3D(SrE3.IR, class, main = "S. repens IR Spectra", ellipse = FALSE)
 
-## ----Chunk28,  results = "hide", eval = FALSE----
-#  plotScoresG(SrE3.IR, class) # not run - it's interactive!
-
 ## ----Chunk29, fig.cap = "\\label{load}Loading Plot"----
 plotLoadings(SrE3.IR, class, main = "S. repens IR Spectra",
 loads = c(1, 2), ref = 1)
@@ -169,6 +162,14 @@ main = "S. repens IR Spectra", truth = SrE3.IR$groups)
 
 ## ----Chunk33,  results = "hide", eval = FALSE----
 #  mclust3dSpectra(SrE3.IR, class) # not run - it's interactive!
+
+## ----Chunk4,  echo = FALSE, fig.width = 6, fig.height = 4, fig.cap = "\\label{colors}Recommended Color Sets in ChemoSpec"----
+par(mfrow = c(2,1), mar = c(3, 1, 2, 1))
+display.brewer.pal(8, "Set1")
+title(main = "ChemoSpec Primary Scheme")
+display.brewer.pal(8, "Set2")
+title(main = "ChemoSpec Pastel Scheme")
+par(mfrow = c(1,1))
 
 ## ----Chunk38,  echo = FALSE, fig.cap = "\\label{food}Map of Functions in ChemoSpec", fig.width = 10, fig.height = 10----
 CS <- foodweb(where = "package:ChemoSpec", plotting = FALSE)

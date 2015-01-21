@@ -11,7 +11,7 @@ Plots the requested PCA scores using the color scheme derived from a \code{"Spec
 \usage{
 plotScores(spectra, pca, pcs = c(1, 2),
 	ellipse = "none", tol = "none",
-	use.sym = FALSE, ...)
+	use.sym = FALSE, leg.loc = "topright", ...)
 }
 
 \arguments{
@@ -33,6 +33,10 @@ A number describing the fraction of points to be labeled.  \code{tol = 1.0} labe
   \item{use.sym}{
 A logical; if true, the color scheme is set to black and the points plotted with symbols.
 }
+  \item{leg.loc}{
+Character; if \code{"none"} no legend will be drawn.  Otherwise, any string acceptable to \code{\link{legend}}.
+}
+
   \item{\dots}{
 Additional parameters to be passed to the plotting functions.
 }
@@ -50,7 +54,7 @@ For other ways of displaying the results, \code{\link{plotScree}}, \code{\link{p
 }
 
 \references{
-\url{http://academic.depauw.edu/~hanson/ChemoSpec/ChemoSpec.html}
+\url{https://github.com/bryanhanson/ChemoSpec}
 }
 
 \author{
