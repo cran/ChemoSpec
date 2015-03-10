@@ -1,19 +1,19 @@
-\name{aovPCA}
-\alias{aovPCA}
+\name{aov_pcaSpectra}
+\alias{aov_pcaSpectra}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 ANOVA-PCA Analysis of Spectra Data
 }
 \description{
-ANOVA-PCA is a combination of both methods developed by Harrington.  The data is partitioned into submatrices corresponding to each experimental factor, which are then subjected to PCA separately after adding the residual error back.  If the effect of a factor is large compared to the residual error, separation along the 1st PC in the score plot should be evident.  With this method, the significance of a factor can be visually determined. (ANOVA-PCA is not blind to group membership.)
+ANOVA-PCA is a combination of both methods developed by Harrington.  The data is partitioned into submatrices corresponding to each experimental factor, which are then subjected to PCA separately after adding the residual error back.  If the effect of a factor is large compared to the residual error, separation along the 1st PC in the score plot should be evident.  With this method, the significance of a factor can be visually determined (ANOVA-PCA is not blind to group membership).
 }
 \usage{
-aovPCA(spectra, fac)
+aov_pcaSpectra(spectra, fac)
 }
 
 \arguments{
   \item{spectra}{
-An object of S3 class \code{\link{Spectra}}
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{fac}{
 A vector of character strings giving the factors to be used in the analysis.  These should be elements of \code{\link{Spectra}}.  Note that there should be 2 or more factors, because ANOVA-PCA on one factor is the same as standard PCA.  See the example.
@@ -42,17 +42,19 @@ This function calls \code{\link{avgFacLvls}}, and the results are used in \code{
 
 
 \examples{
-data(CuticleIR)
-# Create new groups from existing groups
-# These are used as the factors
-n.groups <-list(genotype = c("G", "T"), treatment = c("C", "E"))
-NewIR <- splitSpectraGroups(CuticleIR, n.groups)
-# run aovPCA
-mats <-aovPCA(NewIR, fac = c("genotype", "treatment"))
-apca1 <- aovPCAscores(NewIR, mats, plot = 1, main = "aovPCA: Genotype")
-apca2 <- aovPCAscores(NewIR, mats, plot = 2, main = "aovPCA: Treatment")
-apca3 <- aovPCAscores(NewIR, mats, plot = 3, main = "aovPCA: Genotype x Treatment")
-apca5 <- aovPCAloadings(spectra = NewIR, LM = mats, pca = apca1, main = "aovPCA: Genotype Loadings")
+data(metMUD2)
+# Original factor encoding:
+levels(metMUD2$groups)
+# Split those original levels into 2 new ones (re-code them)
+new.grps <- list(geneBb = c("B", "b"), geneCc = c("C", "c"))
+mM3 <- splitSpectraGroups(metMUD2, new.grps)
+# run aov_pcaSpectra
+mats <-aov_pcaSpectra(mM3, fac = c("geneBb", "geneCc"))
+apca1 <- aovPCAscores(mM3, mats, plot = 1, main = "aovPCA: B vs b")
+apca2 <- aovPCAscores(mM3, mats, plot = 2, main = "aovPCA: C vs c")
+apca3 <- aovPCAscores(mM3, mats, plot = 3, main = "aovPCA: Interaction Term")
+apca4 <- aovPCAloadings(spectra = mM3, LM = mats, pca = apca1,
+	main = "aov_pcaSpectra: Bb Loadings")
 }
 \keyword{ multivariate }
 \keyword{ htest }

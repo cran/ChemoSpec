@@ -1,21 +1,21 @@
-\name{pcaBoot}
+\name{cv_pcaSpectra}
 \Rdversion{1.1}
-\alias{pcaBoot}
+\alias{cv_pcaSpectra}
 
 \title{
 Cross-Validation of Classical PCA Results for a Spectra Object
 }
 \description{
-This function carries out classical PCA on the data in a \code{"Spectra"} object using a cross-validation method.  Nothing more than a wrapper to Peter Filzmoser's \code{\link[chemometrics]{pcaCV}} method with some small plotting changes.
+This function carries out classical PCA on the data in a \code{\link{Spectra}} object using a cross-validation method.  Nothing more than a wrapper to Peter Filzmoser's \code{\link[chemometrics]{pcaCV}} method with some small plotting changes.
 }
 \usage{
-pcaBoot(spectra, pcs, choice = "noscale", repl = 50,
+cv_pcaSpectra(spectra, pcs, choice = "noscale", repl = 50,
 	segments = 4, segment.type = c("random", "consecutive", "interleaved"),
 	length.seg, trace = FALSE, ...)
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}.
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{choice}{A character string indicating the choice of scaling.  One of \code{c("noscale", "autoscale", "Pareto").}
 }
@@ -47,8 +47,9 @@ A list as described in \code{\link[chemometrics]{pcaCV}}, so the result must be 
 
 
 \references{
-\url{https://github.com/bryanhanson/ChemoSpec}\cr
 K. Varmuza and P. Filzmoser \emph{Introduction to Multivariate Statistical Analysis in Chemometrics}, CRC Press, 2009.
+
+\url{https://github.com/bryanhanson/ChemoSpec}\cr
 
 }
 
@@ -62,7 +63,7 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 
 \examples{
 data(SrE.IR)
-results <- pcaBoot(SrE.IR, pcs = 5, choice = "noscale")
+results <- cv_pcaSpectra(SrE.IR, pcs = 5)
 }
 
 \keyword{ multivariate }

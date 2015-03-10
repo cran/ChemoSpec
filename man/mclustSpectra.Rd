@@ -12,7 +12,7 @@ mclustSpectra(spectra, pca, pcs = c(1:3), dims = c(1, 2),
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}.
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{pca}{
 An object of class \code{\link{prcomp}}.
@@ -47,12 +47,12 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 \code{\link{Mclust}} for the underlying function.
 }
 \examples{
-data(CuticleIR)
-class <- classPCA(CuticleIR)
-mclustSpectra(CuticleIR, class, main = "Cuticle IR", plot = "BIC")
-mclustSpectra(CuticleIR, class, main = "Cuticle IR", plot = "proj")
-mclustSpectra(CuticleIR, class, main = "Cuticle IR", plot = "error",
-	truth = CuticleIR$groups)
+data(SrE.IR)
+class <- c_pcaSpectra(SrE.IR, choice = "autoscale")
+mclustSpectra(SrE.IR, class, main = "Cuticle IR", plot = "BIC")
+mclustSpectra(SrE.IR, class, main = "Cuticle IR", plot = "proj")
+mclustSpectra(SrE.IR, class, main = "Cuticle IR", plot = "error",
+	truth = metMUD1$groups)
 }
 \keyword{ multivariate }
 \keyword{ cluster }

@@ -8,7 +8,7 @@ Remove Samples or Groups from a Spectra Object
 }
 
 \description{
-Removes specified samples from a \code{"Spectra"} object.
+Removes specified samples from a \code{\link{Spectra}} object.
 }
 \usage{
 removeSample(spectra, rem.sam)
@@ -16,7 +16,7 @@ removeGroup(spectra, rem.group)
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{rem.sam}{
 Either an integer vector specifying the samples to be removed, or a character vector giving the sample names to be removed.
@@ -31,11 +31,11 @@ If \code{rem.sam} or \code{rem.group} is a character vector, the sample or group
 }
 
 \value{
-A modified object of S3 class \code{"Spectra"}.
+A modified object of S3 class \code{\link{Spectra}}.
 }
 
 \seealso{
-\code{\link{removeFreq}} to remove selected frequencies from a \code{"Spectra"} object.
+\code{\link{removeFreq}} to remove selected frequencies from a \code{\link{Spectra}} object.
 }
 
 \references{
@@ -47,13 +47,13 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 }
 
 \examples{
-data(CuticleIR)
-new1 <- removeSample(CuticleIR, rem.sam = 20)
+data(metMUD1)
+new1 <- removeSample(metMUD1, rem.sam = 20)
 # removes the 20th spectrum/sample
-new2 <- removeSample(CuticleIR, rem.sam = "GE")
-# removes all samples whose name contains "GE"
-new3 <- removeSample(CuticleIR, rem.sam = "GE10")
+new2 <- removeSample(metMUD1, rem.sam = "Sample_20")
 # removes one spectrum/sample with this exact name.
+new3 <- removeSample(metMUD1, rem.sam = "Sample")
+# removes all samples!
 
 }
 

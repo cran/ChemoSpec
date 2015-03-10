@@ -1,7 +1,7 @@
 \name{avgFacLvls}
 \alias{avgFacLvls}
 \title{
-Average levels of a factor in a data matrix
+Average Levels of a Factor in a Data Matrix
 }
 \description{
 \code{\link{avgFacLvls}} takes a matrix and calculates the column means for each level of each factor given. It then replaces the original matrix rows with the means corresponding to the factor/level memership of a particular sample (row). 
@@ -15,7 +15,7 @@ avgFacLvls(matrix, fac)
 A matrix.
 }
   \item{fac}{
-A vector of character strings with length = nrow(matrix)}
+A vector of character strings with length = \code{nrow(matrix)}}
 }
 
 \value{
@@ -31,7 +31,7 @@ Matthew J. Keinsley and Bryan A. Hanson, DePauw University. \email{hanson@depauw
 }
 
 \seealso{
-\code{\link{aovPCA}} for full details.
+\code{\link{aov_pcaSpectra}} for full details.
 }
 \examples{
 M1 <- matrix(rnorm(100), nrow = 20, byrow = TRUE)

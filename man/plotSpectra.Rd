@@ -5,7 +5,7 @@
 Plot Spectra Object
 }
 \description{
-Plots the spectra stored in a \code{"Spectra"} object.  One may choose which spectra to plot, and the x range to plot.  Spectra may be plotted offset or stacked.  The vertical scale is controlled by a combination of several parameters.
+Plots the spectra stored in a \code{\link{Spectra}} object.  One may choose which spectra to plot, and the x range to plot.  Spectra may be plotted offset or stacked.  The vertical scale is controlled by a combination of several parameters.
 }
 \usage{
 plotSpectra(spectra, which = c(1), yrange = range(spectra$data),
@@ -13,7 +13,7 @@ plotSpectra(spectra, which = c(1), yrange = range(spectra$data),
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}.
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{which}{
 An integer vector specifying which spectra to plot, and the order.
@@ -38,6 +38,10 @@ Additional parameters to be passed to plotting functions.
 None.  Side effect is a plot.
 }
 
+\seealso{
+\code{\link{plotSpectraJS}} for the interactive version.
+}
+
 
 \references{
 \url{https://github.com/bryanhanson/ChemoSpec}
@@ -48,12 +52,10 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 }
 
 \examples{
-data(CuticleIR)
-myt <- expression(bolditalic(Portulaca)~bolditalic(oleracea)~bold(Cuticle~IR~Spectra))
-plotSpectra(CuticleIR, main = myt,
-	which = c(10:11, 40:41, 100:101, 140:141, 150:151),
-	yrange = c(0,10),
-	offset = 0.8, amplify = 1.0, lab.pos = 2000) 
+data(metMUD1)
+plotSpectra(metMUD1, main = "metMUD1 NMR Data",
+	which = c(10, 11), yrange = c(0,1.5),
+	offset = 0.06, amplify = 10, lab.pos = 0.5)
 
 }
 \keyword{ hplot }

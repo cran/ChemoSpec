@@ -1,7 +1,7 @@
 
 
 
-LoopThruSpectra <- function(Spectra, ...) {
+loopThruSpectra <- function(Spectra, ...) {
 
 # Function to loop through a series of spectra
 # in a Spectra object for one at a time inspection
@@ -11,7 +11,7 @@ LoopThruSpectra <- function(Spectra, ...) {
 	nr <- nrow(Spectra$data)
 	for (n in 1:nr) {
 		tt <- paste("Spectrum #", n, " of ", nr, sep = "")
-		plotSpectra(Spectra, which = n, title = tt, ...)
+		plotSpectra(Spectra, which = n, main = tt, ...)
 		devAskNewPage(ask = TRUE)
 		}
 	devAskNewPage(ask = FALSE)

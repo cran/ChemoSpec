@@ -4,14 +4,14 @@
 Summarize the Group Parameters of a Spectra Object
 }
 \description{
-This function summarizes the group membership and descriptive parameters of a \code{"Spectra"} object.
+This function summarizes the group membership and descriptive parameters of a \code{\link{Spectra}} object.
 }
 \usage{
 sumGroups(spectra)
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"} whose group membership information is desired.
+An object of S3 class \code{\link{Spectra}} whose group membership information is desired.
 }
 }
 \value{
@@ -35,7 +35,7 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 For a discussion of general issues of color, see \code{\link{colorSymbol}}.
 }
 \examples{
-data(CuticleIR)
-sumGroups(CuticleIR)
+data(metMUD1)
+sumGroups(metMUD1)
 }
 \keyword{ utilities }

@@ -12,6 +12,7 @@ suppressMessages(library("ChemoSpec"))
 suppressMessages(library("RColorBrewer"))
 suppressMessages(library("mvbutils"))
 suppressMessages(library("sna"))
+suppressMessages(library("IDPmisc"))
 
 desc <- packageDescription("ChemoSpec")
 vers <- paste("(Package Version ", desc$Version, ")", sep = "")
@@ -58,11 +59,11 @@ grep("OO", SrE.IR$names) # use if there are more spectra
 #  not_wanted <- normSpectra(SrE.IR)
 
 ## ----Chunk18------------------------------------
-tmp <- binBuck(SrE.IR, bin.ratio = 4)
+tmp <- binSpectra(SrE.IR, bin.ratio = 4)
 sumSpectra(tmp)
 
 ## ----Chunk10b, fig.cap = "\\label{baseline}Correcting baseline drift"----
-SrE2.IR <- baselineSpec(SrE.IR, int = FALSE, method = "rfbaseline", retC = TRUE)
+SrE2.IR <- baselineSpectra(SrE.IR, int = FALSE, method = "rfbaseline", retC = TRUE)
 
 ## ----Chunk11------------------------------------
 noTD <- removeSample(SrE2.IR, rem.sam = c("TD_adSrE"))
@@ -75,18 +76,18 @@ SrE2.IR$names[SrE] # gives the name(s) that contain "SrE"
 SrE # gives the corresponding indicies
 
 ## ----Chunk14,  fig.width = 8, fig.height = 5, fig.cap = "\\label{surv}Checking for Regions of No Interest"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Extract IR Spectra", by.gr = FALSE)
+surveySpectra(SrE2.IR, method = "iqr", main = "S. repens Extract IR Spectra", by.gr = FALSE)
 
 ## ----Chunk14a, fig.cap = "\\label{survA}Detail of Carbonyl Region"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
+surveySpectra(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
 by.gr = FALSE, xlim = c(1650, 1800))
 
 ## ----Chunk14b, fig.cap = "\\label{survB}Detail of Carbonyl Region by Group"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
+surveySpectra(SrE2.IR, method = "iqr", main = "S. repens Detail of Carbonyl Region",
 by.gr = TRUE, xlim = c(1650, 1800))
 
 ## ----Chunk14c, fig.cap = "\\label{survC}Inspection of an Uninteresting Spectral Region"----
-specSurvey(SrE2.IR, method = "iqr", main = "S. repens Detail of Empty Region",
+surveySpectra(SrE2.IR, method = "iqr", main = "S. repens Detail of Empty Region",
 by.gr = FALSE, xlim = c(1800, 2500), ylim = c(0.0, 0.05))
 
 ## ----Chunk15------------------------------------
@@ -100,12 +101,12 @@ check4Gaps(SrE3.IR$freq, SrE3.IR$data[1,], plot = TRUE)
 HCA <- hcaSpectra(SrE3.IR, main = "S. repens IR Spectra")
 
 ## ----Chunk10a, fig.cap = "\\label{classPCA}Classical PCA"----
-class <- classPCA(SrE3.IR, choice = "noscale")
+class <- c_pcaSpectra(SrE3.IR, choice = "noscale")
 plotScores(SrE3.IR, main = "S. repens IR Spectra", class,
 pcs = c(1,2), ellipse = "rob", tol = 0.01)
 
 ## ----Chunk21, fig.cap = "\\label{robPCA}Robust PCA"----
-robust <- robPCA(SrE3.IR, choice = "noscale")
+robust <- r_pcaSpectra(SrE3.IR, choice = "noscale")
 plotScores(SrE3.IR, main = "S. repens IR Spectra", robust,
 pcs = c(1,2), ellipse = "rob", tol = 0.01)
 
@@ -122,7 +123,7 @@ plotScree(class, main = "S. repens IR Spectra")
 plotScree2(class, main = "S. repens IR Spectra")
 
 ## ----Chunk25, fig.cap = "\\label{boot}Bootstrap Analysis for No. of PCs"----
-out <- pcaBoot(SrE3.IR, pcs = 5, choice = "noscale")
+out <- cv_pcaSpectra(SrE3.IR, pcs = 5, choice = "noscale")
 
 ## ----Chunk26,  results = "hide", eval = FALSE----
 #  plotScoresRGL(SrE3.IR, class, main = "S. repens IR Spectra",

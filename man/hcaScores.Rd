@@ -6,7 +6,7 @@
 HCA on PCA scores from a Spectra Object
 }
 \description{
-A wrapper which performs HCA on the scores from a PCA of a \code{"Spectra"} object, color-coding the results as specified in the object.  Many methods for computing the clusters and distances are available.
+A wrapper which performs HCA on the scores from a PCA of a \code{\link{Spectra}} object, color-coding the results as specified in the object.  Many methods for computing the clusters and distances are available.
 }
 
 \usage{
@@ -16,10 +16,10 @@ hcaScores(spectra, pca, scores = c(1:5), c.method = "complete",
 
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}.
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{pca}{
-An object of class \code{\link{prcomp}}, modified to include a list element called \code{$method}, a character string describing the pre-processing carried out and the type of PCA performed (it appears on the plot).  This is automatically provided if \code{ChemoSpec} functions \code{\link{classPCA}} or \code{\link{robPCA}} were used to create \code{pca}.
+An object of class \code{\link{prcomp}}, modified to include a list element called \code{$method}, a character string describing the pre-processing carried out and the type of PCA performed (it appears on the plot).  This is automatically provided if \code{ChemoSpec} functions \code{\link{c_pcaSpectra}} or \code{\link{r_pcaSpectra}} were used to create \code{pca}.
 }
   \item{scores}{
 A vector of integers specifying which scores to use for the HCA.}
@@ -52,13 +52,13 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 
 \seealso{
 \code{\link{hclust}} for the underlying function.
-See \code{\link{hcaSpectra}} for HCA of the entire data set stored in the \code{"Spectra"} object.
+See \code{\link{hcaSpectra}} for HCA of the entire data set stored in the \code{\link{Spectra}} object.
 \code{\link{plotHCA}} for the function that actually does the plotting.
 
 }
 \examples{
 data(SrE.IR)
-results <- classPCA(SrE.IR, choice = "noscale")
+results <- c_pcaSpectra(SrE.IR, choice = "noscale")
 myt <- expression(bolditalic(Serenoa)~bolditalic(repens)~bold(IR~Spectra))
 res <- hcaScores(SrE.IR,  results, scores = c(1:5), main = myt)
 }

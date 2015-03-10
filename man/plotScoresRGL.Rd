@@ -4,7 +4,7 @@
 Interactive 3D Score Plot of a Spectra Object
 }
 \description{
-This function uses the \code{\link{rgl}} package to create an interactive plot of PCA scores derived from a \code{"Spectra"} object.  A title and legend can be added if desired.  Classical or robust confidence ellipses may be added if desired.
+This function uses the \code{\link{rgl}} package to create an interactive plot of PCA scores derived from a \code{\link{Spectra}} object.  A title and legend can be added if desired.  Classical or robust confidence ellipses may be added if desired.
 }
 \usage{
 plotScoresRGL(spectra, pca, pcs = c(1:3), ellipse = TRUE,
@@ -14,7 +14,7 @@ plotScoresRGL(spectra, pca, pcs = c(1:3), ellipse = TRUE,
 }
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}.
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{pca}{
 An object of class \code{\link{prcomp}}.
@@ -71,10 +71,10 @@ Bryan A. Hanson, DePauw University. \email{hanson@depauw.edu}
 Other functions in \code{ChemoSpec} that plot PCA scores are: \code{\link{plotScores}} (2D version), and \code{\link{plotScores3D}} (uses \code{lattice} graphics).
 }
 \examples{
-data(CuticleIR)
-results <- classPCA(CuticleIR, choice = "autoscale")
+data(metMUD1)
+results <- c_pcaSpectra(metMUD1, choice = "autoscale")
 \dontrun{
-plotScoresRGL(CuticleIR, results, title = "Cuticle IR Spectra",
+plotScoresRGL(metMUD1, results, title = "metMUD1 NMR Spectra",
 leg.pos = "A", t.pos = "B")
 }
 }

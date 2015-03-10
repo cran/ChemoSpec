@@ -6,7 +6,7 @@
 Decorate PCA Score Plot of a Spectra Object
 }
 \description{
-Utility function to carry out misc. labeling functions on the PCA score plot of a \code{"Spectra"} object.  Never called by the user.
+Utility function to carry out misc. labeling functions on the PCA score plot of a \code{\link{Spectra}} object.  An internal function, not generally called by the user.
 }
 \usage{
 plotScoresDecoration(spectra, pca, pcs = c(1, 2), tol = "none")
@@ -14,10 +14,10 @@ plotScoresDecoration(spectra, pca, pcs = c(1, 2), tol = "none")
 
 \arguments{
   \item{spectra}{
-An object of S3 class \code{"Spectra"}
+An object of S3 class \code{\link{Spectra}}.
 }
   \item{pca}{
-An object of class \code{\link{prcomp}}, modified to include a list element called \code{$method}, a character string describing the pre-processing carried out and the type of PCA performed (it appears on the plot).  This is automatically provided if \code{ChemoSpec} functions \code{\link{classPCA}} or \code{\link{robPCA}} were used to create \code{pca}.
+An object of class \code{\link{prcomp}}, modified to include a list element called \code{$method}, a character string describing the pre-processing carried out and the type of PCA performed (it appears on the plot).  This is automatically provided if \code{ChemoSpec} functions \code{\link{c_pcaSpectra}} or \code{\link{r_pcaSpectra}} were used to create \code{pca}.
 }
   \item{pcs}{
 A vector of two integers specifying the PCA scores to plot.
