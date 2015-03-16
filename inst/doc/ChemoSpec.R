@@ -13,6 +13,7 @@ suppressMessages(library("RColorBrewer"))
 suppressMessages(library("mvbutils"))
 suppressMessages(library("sna"))
 suppressMessages(library("IDPmisc"))
+suppressMessages(library("mclust"))
 
 desc <- packageDescription("ChemoSpec")
 vers <- paste("(Package Version ", desc$Version, ")", sep = "")
