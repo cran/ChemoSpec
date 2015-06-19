@@ -1,6 +1,7 @@
 \name{corSpectra}
 \alias{corSpectra}
 \alias{covSpectra}
+\alias{covSpectraJS}
 
 \title{
 Tools for STOCSY Analysis of a Spectra Object
@@ -12,9 +13,12 @@ These functions provide tools for STOSCY analysis of a \code{\link{Spectra}} obj
 
 \usage{
 corSpectra(spectra, plot = TRUE, limX = NULL, limY = NULL, nticks = 10,
-levels = NULL, pmode = "contour", C = NULL, V = NULL, ...)
+levels = NULL, pmode = "contour", drawGrid = TRUE, C = NULL, V = NULL, ...)
 
-covSpectra(spectra, freq = spectra$freq[1], C = NULL, V = NULL, ...)
+covSpectra(spectra, freq = spectra$freq[1], C = NULL, V = NULL, yFree = TRUE, ...)
+
+covSpectraJS(spectra, freq = spectra$freq[1],
+	C = NULL, V = NULL, browser = NULL, minify = TRUE, ...)
 }
 
 \arguments{
@@ -39,6 +43,9 @@ Numeric.  A vector of values at which to draw the contours or levels.  Applies t
   \item{pmode}{
 Character.  The plot mode.   Applies to \code{corSpectra} only. One of \code{c("contour", "image", "contourplot", "levelplot", "rgl", "exCon")}.  The last two are interactive.  See Details.
 }
+  \item{drawGrid}{
+Logical.  Shall a faint gray grid be added to the plot?  Applies to \code{corSpectra} only.
+}
   \item{C}{
 Matrix.  Optional. A precomputed correlation matrix.
 }
@@ -46,7 +53,19 @@ Matrix.  Optional. A precomputed correlation matrix.
 Matrix.  Optional. A precomputed covariance matrix.
 }
   \item{freq}{
-Numeric.  The desired frequency to be plotted.   Applies to \code{covSpectra} only.
+Numeric.  The desired frequency to be plotted.   Applies to \code{covSpectra} only.  In STOCSY terminology, this is the driver peak and it will be marked by a gray dotted line.
+}
+
+  \item{yFree}{
+Logical. Applies to \code{covSpectra} only.  If \code{FALSE}, the y axis is scaled to the range of the covariance matrix, so that the particular data row can be appreciated in terms of the overall data set.  If \code{TRUE}, the y axis is scaled to the data row specified by \code{freq}, so it fills the vertical dimension.
+}
+
+\item{browser}{
+Character.  Applies to \code{covSpectra} only. See \code{\link{plotSpectraJS}} for details.
+}
+
+  \item{minify}{
+Logical.  Applies to \code{covSpectra} only.  See \code{\link{plotSpectraJS}} for details.
 }
 
   \item{\dots}{
@@ -55,8 +74,9 @@ Other parameters to be passed to the plotting functions.
 }
 
 \value{
-A list giving the covariance and correlation matrices.  A plot will also be made if \code{plot = TRUE} for \code{corSpectra}.
+A list giving the covariance and correlation matrices.  A plot will also be made if \code{plot = TRUE} for \code{corSpectra}.  \code{covSpectraJS} gives an interactive web page.
 }
+
 
 \references{
 O. Cloarec et. al. Analytical Chemistry vol. 77 pgs. 1282-1289 (2005).
@@ -80,13 +100,13 @@ For \code{corSpectra}, the labeling of the axis will be wrong if there is a gap 
 }
 
 \details{
-If \code{spectra$freq} is in decreasing order, it and \code{spectra$data} are silently re-ordered to be increasing before plotting.
+If \code{spectra$freq} is in decreasing order, it and \code{spectra$data} are silently re-ordered to be increasing before plotting.  For this reason, if you are providing pre-computed covariance and correlation matrices, be sure that the frequency axis is in ascending order.  See the example for sample code.
 
 The calculation of the correlation and covariance matrices may take quite some time for large data sets.  It is possible to pre-compute these and pass them into the functions to save time and avoid repetition.
 
 Plotting in \code{corSpectra} can be extremely slow for large data sets.  The base graphics options (\code{pmode = "contour"} or \code{"image"}) are much faster than the \code{lattice} options.  These plots are probably best for an overall sense of the data and for publication rather than detailed interpretation. If using \code{pmode = "contour"} drawing fewer contours is of course faster for both drawing and computation of the contours.  Note too that contour style plots have \code{n} colors for \code{n} contour levels but image style plots have \code{n-1} colors for \code{n} levels.
 
-The color scale for the plots is blue/low correlation to red/high correlation, anchored at a shade of green for zero correlation.  The example shows how to see the color scale.  
+The color scale for the plots is blue/low correlation to red/high correlation, anchored at a shade of green for zero correlation.  The example shows how to see the color scale.
 
 For \code{covSpectra}, the x and y limits can be set simply by passing \code{xlim} and \code{ylim} via the \ldots.
 }
@@ -106,8 +126,22 @@ For \code{covSpectra}, the x and y limits can be set simply by passing \code{xli
 data(metMUD2)
 lvs <- c(-0.99, -0.95, -0.9, 0.9, 0.95, 0.99)
 lim <- c(0.6, 4.3)
-res <- corSpectra(metMUD2, levels = lvs, limX = lim, limY = lim, main = "metMUD2 NMR Data")
-jnk <- covSpectra(metMUD2, freq = 1.0, C = res[[2]], V = res[[1]])
+res <- corSpectra(metMUD2, levels = lvs, limX = lim, limY = lim, main = "metMUD2 STOCSY Analysis")
+jnk <- covSpectra(metMUD2, freq = 1.030, C = res[[2]], V = res[[1]])
+\dontrun{
+require("jsonlite")
+require("js")
+jnk <- covSpectraJS(metMUD2, freq = 1.030, C = res[[2]], V = res[[1]])
+}
+# Code to sort the frequency axis
+# Run prior to pre-computing the cor/cov matrices
+\dontrun{
+if (is.unsorted(Spectra_object$freq)) {
+  Spectra_object$freq <- rev(Spectra_object$freq)
+  Spectra_object <- Spectra_object[,ncol(Spectra_object$data):1]
+  }
+
+}
 }
 
 \keyword{ hplot }

@@ -20,12 +20,14 @@ An object of S3 class \code{\link{Spectra}}.
 A numeric covariance matrix.
 }
   \item{Quan}{
-Numeric.  A value in the interval (0...1) giving the quantile to be selected.  For instance, \code{Quan = 0.1} selects the top 10 percent of values.
+Numeric.  A value in the interval (0...1) giving the quantile to be selected.  For instance, \code{Quan = 0.1} selects the top 10 percent of the absolute covariance values.
 }
 }
-
+\details{
+IMPORTANT: The current version includes the variances along the diagonal and thus the answers are skewed.  A future version will include the ability to exclude these values from the analysis.
+}
 \value{
-A data frame containing the frequencies from the \code{\link{Spectra}} object, the absolute value of the covariance at that frequency, and the relative covariance.  Sorted by absolute covariance in descending order.
+A data frame containing the frequencies from the \code{\link{Spectra}} object, the covariance at that frequency, the absolute value of the covariance, and the relative covariance.  Sorted by absolute covariance in descending order.
 }
 
 \references{
