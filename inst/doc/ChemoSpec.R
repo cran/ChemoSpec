@@ -9,11 +9,21 @@ options(width =  50, show.signif.stars = FALSE)
 
 suppressMessages(library("knitr"))
 suppressMessages(library("ChemoSpec"))
+
 suppressMessages(library("RColorBrewer"))
 suppressMessages(library("mvbutils"))
 suppressMessages(library("sna"))
-suppressMessages(library("IDPmisc"))
 suppressMessages(library("mclust"))
+
+
+#suppressMessages(library("IDPmisc"))
+#suppressMessages(library("stats"))
+#suppressMessages(library("utils"))
+#suppressMessages(library("grDevices"))
+
+# Other packages in Suggests but apparently not needed:
+# DPmisc, amap, seriation, speaq, clusterCrit, NbClust, R.utils, baseline,  gsubfn, lattice, pcaPP, pls, grid, robustbase, MASS
+
 
 desc <- packageDescription("ChemoSpec")
 vers <- paste("(Package Version ", desc$Version, ")", sep = "")
@@ -138,7 +148,7 @@ plotLoadings(SrE3.IR, class, main = "S. repens IR Spectra",
 loads = c(1, 2), ref = 1)
 
 ## ----Chunk30, fig.cap = "\\label{load2}Plotting One Loading vs. Another"----
-plot2Loadings(SrE3.IR, class, main = "S. repens IR Spectra",
+res <- plot2Loadings(SrE3.IR, class, main = "S. repens IR Spectra",
 loads = c(1, 2), tol = 0.002)
 
 ## ----Chunk30a,  fig.cap = "\\label{splot}s-Plot to Identify Influential Frequencies"----
