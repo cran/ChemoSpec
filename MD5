@@ -1,6 +1,6 @@
-b6efb299e444df0870a754be411e09ad *DESCRIPTION
-cd97050fbf7e4e622654e661020e243a *NAMESPACE
-df7ae5f244b59868594237d5f21a6649 *NEWS
+4c672c4fada92eb0322fef0522a7ef3a *DESCRIPTION
+fd638b15fa7f1681e4642d7473188e19 *NAMESPACE
+173ddc6d2e56875f819a4eb8b7d3ee93 *NEWS
 7cc3ee94135f3b5b0dd15622e70faf61 *R/LoopThruSpectra.R
 f80960070f008e4c480402a21ab65a93 *R/aovPCAloadings.R
 dc1c170fffb85aae1fee3b060e2bd581 *R/aovPCAscores.R
@@ -18,7 +18,7 @@ eb5b5ca0c6de00a2e9cda7dcf53ac8f2 *R/colLeaf.R
 c4d8da25fccd2e73ef9fb7e3d041ce33 *R/coordProjCS.R
 0b7a94bba3c54feb5b7d20bbb7726b1c *R/cv_pcaSpectra.R
 25d1668e018ba4930aab20eb36759370 *R/evalClusters.R
-3d2f19bafcbefa3200565ba596ca92bb *R/files2SpectraObject.R
+ef72a988c42c17946801f05438865820 *R/files2SpectraObject.R
 ea23981814acace255a63ce5830845db *R/groupNcolor.R
 ed289970eb1a291a8400f6302db202bb *R/hcaScores.R
 2ad9fc627318e7b2a514e71d725125e0 *R/hcaSpectra.R
@@ -28,6 +28,7 @@ eac7dedd4e5a64780851e0df1d1dd73c *R/isWholeNo.R
 db6e70c3b7ab76cb5c714606546faddb *R/labelExtremes.R
 1ca491470a2651ed9f47a472b44185ba *R/labelExtremes3d.R
 09ae8260fc651ff1d736ec3e94f4bd2f *R/makeEllipsoid.R
+4778a1528bd5838a2998e90a7c0ac8d6 *R/matrix2SpectraObject.R
 58f47da01cc10ec7797ff1c7ab0a96f7 *R/mclust3D.R
 69130550c42f2f4c044ec03c87f613eb *R/mclust3dSpectra.R
 3f8562426065892bdf209ec22e376ec3 *R/mclustSpectra.R
@@ -50,10 +51,11 @@ fffc05f547f46cde3c31e7bfeef33e79 *R/plotSpectraJS.R
 3517e3c76f182268cdd781ff50cda7e9 *R/q2rPCA.R
 85030519fedfed3525ff517c66007c51 *R/r2qPCA.R
 d2a84f2c6f919997bfecff7f9ae71320 *R/r_pcaSpectra.R
-5e0633a5f3bccf511e370b5a761ca37e *R/readJDX.R
+797188eb1f3f59b19c1da45650195d6d *R/readJDX.R
+66b1f32be7acf9d9bd2ee2be16f1bdda *R/readJEOLascii.R
 378c7b74776316a14ac5c28231a5ee1d *R/removeFreq.R
 1d4b11bb525f157c1e1b0c8c472b0e8e *R/removeGroup.R
-4ce9ecafdc62202b801b67c0c4ccc699 *R/removeSample.R
+cc5589b06df211c93ec4ce035fdd7300 *R/removeSample.R
 40c0e289875ac31543cfb0fec8a8c6e3 *R/rowDist.R
 1bee4ef252de7368b22ce941aa859ca1 *R/sPlotSpectra.R
 f4b1f39f63dffd5661a64bc1362c5505 *R/sampleDistSpectra.R
@@ -79,7 +81,7 @@ d1de35877abe696e5272d43e746cb3c8 *data/metMUD1.RData
 aefd059ed08f63015f3fcdfbc37fa68e *inst/CITATION
 c8385a4abb29c23c0d88d7dd4df1a1c3 *inst/doc/ChemoSpec.R
 063017f622cabfe31f1785451aa0db7c *inst/doc/ChemoSpec.Rnw
-b03fa45d85aec3e69e0c7cb95ade6334 *inst/doc/ChemoSpec.pdf
+5e3e61cc08920a191f9465ebc975a5b3 *inst/doc/ChemoSpec.pdf
 84b8bcbb4939380ceb8d0468f9f9d8b7 *inst/extdata/pS.css
 b10b2adeff13b2c7ab4839c6f9eacd21 *inst/extdata/pS_brushNguides.js
 83a2d5bde81ec3eb2bef618f8475b37e *inst/extdata/pS_controls.js
@@ -109,7 +111,7 @@ de36cd73faeb966bead04e5e8046a64a *man/conColScheme.Rd
 961f367eeddce10cd0585e03c2b32ef1 *man/coordProjCS.Rd
 1dc29710ee35a7a5cf8603cd4b16b2d6 *man/cv_pcaSpectra.Rd
 e5b72432bf8ed9e81d6599530f4724e4 *man/evalClusters.Rd
-8d0f578070a54bf84bc26fa0a6e0258b *man/files2SpectraObject.Rd
+4d81db669aab8b8cd455ddd1cf7f2217 *man/files2SpectraObject.Rd
 2d3f5785743ed232f86c474648259e20 *man/groupNcolor.Rd
 682792d659e9392d79ed2a604b3ae689 *man/hcaScores.Rd
 11e0e3ef8104d51e2c6d7ec7f7fab8da *man/hcaSpectra.Rd
@@ -119,6 +121,7 @@ ac807bf2294024d1ad33fae2efdca254 *man/isWholeNo.Rd
 cc5bb8dcd876972b5d87e8fdaabbf161 *man/labelExtremes.Rd
 9e2509dffde3709639ebe5383e0dd9e1 *man/labelExtremes3d.Rd
 5464ae3fddd8222778fafda0d85daa55 *man/makeEllipsoid.Rd
+62255e25d8a45ad82e5b59a27a5d548c *man/matrix2SpectraObject.Rd
 8937f96a326d09541a114ddcf7b0cda7 *man/mclust3D.Rd
 b3b1c0614a89131b928395e548795760 *man/mclust3dSpectra.Rd
 5f6ee4b6e8924dfe82a486215aeff3ed *man/mclustSpectra.Rd
@@ -136,7 +139,7 @@ e3259cd81c439f936abb488d0a8ab336 *man/plotScoresRGL.Rd
 fb7f2ce3364cfd954331d0355a02d147 *man/plotScree.Rd
 dd79e6cdf05b34d2d74aded8da6af678 *man/plotSpectra.Rd
 17d87f7beee28f95fb2eac61d67e04b2 *man/plotSpectraDist.Rd
-9621625c0093e11c659ea6cbed435e6e *man/plotSpectraJS.Rd
+398647125f6e3b55d5446c94450c5c26 *man/plotSpectraJS.Rd
 600a8167e32a432edcba3a41674d4180 *man/q2rPCA.Rd
 10f82f8431f10716b057c96c86c97255 *man/r_pcaSpectra.Rd
 ca2e39072569618e137c085c3bd14ed8 *man/readJDX.Rd
