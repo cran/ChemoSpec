@@ -4,6 +4,33 @@ Exploratory Chemometrics for Spectroscopy
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpec
 
+Changes in version 4.4.1 2016-12-28
+     + check4Gaps overhauled and simplified.
+     + Improved the way sumSpectra guesses at a tol value to send to check4Gaps.
+     + Improved the way check4Gaps uses the tol value.
+     + plotSpectraJS gains a "which" argument.
+     + Removed function readJDX.  There is now a package by that name which is much more powerful and will be used when needed.
+     + Removed CITATION file.
+     + Added Mike Bostock as a ctb in Authors@R.
+     + Updated package references in vignette.
+
+Changes in version 4.3.139 2016-08-06
+     + Further tweaks to namespace.
+
+Changes in version 4.3.130 2016-08-05
+     + removeFreq needed a drop = FALSE argument for the case where there was just one sample.  Reported by Daniel Montiel-Chicharro.
+     + NOTE: check4Gaps may not identify gaps when only 1 spectrum is present.  Need to follow up.
+     + More clean up of namespace due to now using roxygen.
+ 
+Changes in version 4.3.128 2016-07-21
+     + Cleaned up a lot of formatting & style issues in documentation.  Merged documentation on selected functions.  Miscellaneous improvements in documentation.
+     + removeSample now checks for additional data.
+     + sampleDistPlot was not plotting (!).  Fixed.  Also was not passing ... Fixed.
+     + Converted documentation to roxygen2.
+
+Changes in version 4.3.37 2016-07-18
+     + plotSpectra gains a showGrid argument, and any grid drawn is now underneath the spectra.  Suggested by Jason James.
+
 Changes in version 4.3.34 2016-07-15
      + removeSample needed a drop = FALSE argument so one could remove all samples but one.
      + files2SpectraObject inherits the behavior of files2SpectraObject2 and is the new default.  Message added to function warning of changes.

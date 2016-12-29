@@ -1,3 +1,6 @@
+#'
+#' @describeIn files2SpectraObject Import a matrix of data
+#'
 matrix2SpectraObject <-
 function(gr.crit = NULL, gr.cols = c("auto"),
 	freq.unit = "no frequency unit provided",

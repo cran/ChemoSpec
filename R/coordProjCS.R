@@ -1,3 +1,61 @@
+#' Modified Version of coordProj from mclust
+#' 
+#' This is a modified version of the function \code{coordProj} from package
+#' \pkg{mclust}. In this version, the original symbol scheme for the error
+#' plot is changed to simply plot an X over the letters identifying the groups.
+#' An internal function, not generally called by the user.
+#' 
+#' 
+#' @param data See \code{coordProj}.
+#' 
+#' @param dimens See \code{coordProj}.
+#' 
+#' @param parameters See \code{coordProj}.
+#' 
+#' @param z See \code{coordProj}.
+#' 
+#' @param classification See \code{coordProj}.
+#' 
+#' @param truth See \code{coordProj}.
+#' 
+#' @param uncertainty See \code{coordProj}.
+#' 
+#' @param what See \code{coordProj}.
+#' 
+#' @param quantiles See \code{coordProj}.
+#' 
+#' @param symbols See \code{coordProj}.
+#' 
+#' @param colors See \code{coordProj}.
+#' 
+#' @param scale See \code{coordProj}.
+#' 
+#' @param xlim See \code{coordProj}.
+#' 
+#' @param ylim See \code{coordProj}.
+#' 
+#' @param CEX See \code{coordProj}.
+#' 
+#' @param PCH See \code{coordProj}.
+#' 
+#' @param identify See \code{coordProj}.
+#' 
+#' @param \dots See \code{coordProj}.
+#' 
+#' @return See \code{coordProj}.
+#' 
+#' @author Bryan A. Hanson, DePauw University. Derived from \code{\link[mclust]{coordProj}}.
+#' 
+#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#' 
+#' @keywords multivariate cluster
+#' 
+#' @export coordProjCS
+#' 
+#' @importFrom graphics par plot title points
+#' @importFrom stats sd 
+# @importFrom mclust map mclust.options classError mvn2plot
+#'
 coordProjCS <- 
 function (data, dimens = c(1, 2), parameters = NULL, z = NULL, 
     classification = NULL, truth = NULL, uncertainty = NULL, 

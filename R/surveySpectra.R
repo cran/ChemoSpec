@@ -1,6 +1,63 @@
-surveySpectra <-
-function(spectra, method = c("sd", "sem", "sem95", "mad", "iqr"),
-by.gr = TRUE,  ...) {
+#'
+#'
+#' Plot Measures of Central Tendency and Spread for a Spectra Object
+#' 
+#' Compute and plot various measures of central tendency and
+#' spread for a \code{\link{Spectra}} object.  Several different measures/spreads
+#' are available.  These are useful as an overview of where a data set varies
+#' the most.
+#' 
+#' For \code{surveySpectra} the method choice works as follows: \code{sd} plots
+#' the mean spectrum +/- the standard deviation, \code{sem} plots the mean
+#' spectrum +/- the standard error of the mean, \code{sem95} plots the mean
+#' spectrum +/- the standard error at the 95 percent confidence interval,
+#' \code{mad} plots the median spectrum +/- the median absolute deviation, and
+#' finally, \code{iqr} plots the median spectrum + the upper hinge and - the
+#' lower hinge.
+#' 
+#' For \code{surveySpectra2}, the spectra are mean centered and plotted.  Below
+#' that, the relative summary statistic is plotted, offset, but on the same
+#' scale.
+#'
+#' @param spectra An object of S3 class \code{\link{Spectra}} to be analyzed.
+#'
+#' @param method Character.  One of \code{c("sd", "sem", "sem95", "mad",
+#' "iqr")}.
+#'
+#' @param by.gr Logical, indicating if the analysis is to be done by group or
+#' not. Applies to \code{surveySpectra} only.
+#'
+#' @param \dots Additional parameters to be passed to the plotting routines.
+#'
+#' @param lab.pos Numeric, giving the frequency where the label should be drawn.
+#' Applies to \code{surveySpectra2} only.
+#'
+#' @return None; side effect is a plot
+#'
+#' @author Bryan A. Hanson, DePauw University.
+#'
+#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#'
+#' @keywords hplot
+#'
+#' @examples
+#' 
+#' data(SrE.IR)
+#' myt <- expression(bolditalic(Serenoa)~bolditalic(repens)~bold(Extract~IR~Spectra))
+#' surveySpectra(SrE.IR, method = "iqr", main = myt)
+#' surveySpectra2(SrE.IR, method = "iqr", main = myt)
+#'
+#' @export surveySpectra surveySpectra2
+#'
+#' @importFrom stats sd
+#' @importFrom graphics plot lines text
+#' @importFrom plyr aaply
+# @importFrom lattice xyplot
+#'
+#' @describeIn surveySpectra Spectral survey emphasizing mean or median spectrum, optionally by group.
+#' 
+surveySpectra <- function(spectra, method = c("sd", "sem", "sem95", "mad", "iqr"),
+	by.gr = TRUE,  ...) {
 
 # Function to show means and spread of Spectra objects by group
 # Part of the ChemoSpec package

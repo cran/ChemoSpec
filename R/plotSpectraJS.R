@@ -1,11 +1,95 @@
-
-plotSpectraJS <- function(spectra, browser = NULL, minify = TRUE) {
+#'
+#'
+#' Plot a Spectra Object Interactively
+#' 
+#' This function uses the d3.js JavaScript library to plot a \code{\link{Spectra}}
+#' object interactively.  This is most useful for data exploration.  For high
+#' quality plots, consider \code{\link{plotSpectra}}.
+#' 
+#' The spectral data are incorporated into the web page. Keep in mind that very large
+#' data sets, like NMR spectra with 32K points, will bog down the browser dramatically.
+#' In these cases, you may need to limit the number of samples in passed to this function.
+#' See \code{\link{removeSample}} or use argument \code{which}.
+#'
+#' @param spectra An object of S3 class \code{\link{Spectra}} to be checked.
+#'
+#' @param which Integer.  If not \code{NULL}, specifies by number which spectra to plot.
+#' If greater control is needed, use \code{\link{removeSample}} which is more flexible
+#' before calling this function.
+#'
+#' @param browser Character.  Something that will make sense to your OS.  Only
+#' necessary if you want to override your system specified browser as
+#' understood by \code{R}.  See below for further details.
+#'
+#' @param minify Logical.  Shall the JavaScript be minified?  This improves
+#' performance.  However, it requires package \code{js} which in turn requires
+#' package \code{V8}.  The latter is not available on all platforms.  Details
+#' may be available at \url{https://github.com/jeroenooms/v8}
+#'
+#' @return None; side effect is an interactive web page.  The temporary
+#' directory containing the files that drive the web page is written to the
+#' console in case you wish to use those files.  This directory is deleted when
+#' you quit R.  If you wish to read the file, don't minify the code, it will be
+#' unreadable.
+#'
+##' @section Browser Choice: The browser is called by
+##' \code{\link[utils]{browseURL}}, which
+##' in turn uses \code{options("browser")}.  Exactly how this is handled
+##' is OS dependent.
+##'
+##' @section RStudio Viewer: If browser is \code{NULL}, you are using RStudio, and a viewer is specified, this will be called.  You can stop this by with \code{options(viewer = NULL)}.
+##'
+##'
+##' @section Browser Choice (Mac): On a Mac, the default browser is called
+##' by \code{/bin/sh/open}
+##' which in turn looks at which browser you have set in the system settings.  You can
+##' override your default with
+##' \code{browser = "/usr/bin/open -a 'Google Chrome'"} for example.
+##'
+##' @section Browser Choice & Performance:  You can check the performance of
+##' your browser at peacekeeper.futuremark.com  The most relevant score
+##' is the rendering category.
+#'
+#' @author Bryan A. Hanson, DePauw University.
+#'
+#' @seealso \code{\link{plotSpectra}} for non-interactive plotting.  Details
+#' about \code{d3.js} are at \url{www.d3js.org}.
+#'
+#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#'
+#' @keywords plot
+#'
+#' @examples
+#' 
+#' if (interactive()) {
+#'   require("jsonlite")
+#'   require("js")
+#'   data(metMUD2)
+#'   plotSpectraJS(metMUD2)
+#' }
+#' 
+#' @export plotSpectraJS
+#'
+#' @importFrom utils browseURL
+# @importFrom jsonlite toJSON
+#'
+plotSpectraJS <- function(spectra, which = NULL, browser = NULL, minify = TRUE) {
 
 	# Bryan A. Hanson, DePauw University, February 2015
 	# This is the R front end controlling everything
 
 	if (missing(spectra)) stop("No spectral data provided")
 	chkSpectra(spectra)
+
+	if (!is.null(which)) {
+		if (!is.integer(which)) stop("which must be an integer vector")
+		which2 <- setdiff(1:length(spectra$names), which)
+		spectra <- removeSample(spectra, rem.sam = which2)
+		}
+	
+	if (!requireNamespace("jsonlite", quietly = TRUE)) {
+		stop("You need install package jsonlite to use this function")
+		}
 
 	# Check to see if spectra$freq is increasing - if not, the scales will be inverted
 	# Silently reverse things
@@ -114,7 +198,4 @@ plotSpectraJS <- function(spectra, browser = NULL, minify = TRUE) {
 		return(invisible())
 	}
 	
-	if (!requireNamespace("jsonlite", quietly = TRUE)) {
-		stop("You need install package jsonlite to use this function")
-		}
 	}

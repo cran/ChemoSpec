@@ -1,5 +1,40 @@
-sumSpectra <-
-function(spectra, ...){
+#'
+#' Summarize a Spectra Object
+#' 
+#' Provides a summary of a \code{\link{Spectra}} object, essentially a more
+#' spectroscopist-friendly version of \code{str()}.
+#' 
+#' Prior to summarizing, \code{\link{chkSpectra}} is run with confirm = FALSE.
+#' If there are problems, warnings are issued to the console and the summary is
+#' not done.  If \code{sumSpectra} thinks there is a gap between every data
+#' point, add the argument \code{tol = xx} which will pass through to
+#' \code{\link{check4Gaps}} and alleviate this problem (which has to do with
+#' rounding when subtracting two adjacent frequency values).  The
+#' \code{\link{Spectra}} object is checked to see if it contains data elements
+#' beyond what is required.  If so, these extra elements are reported to the
+#' console.
+#' 
+#' @param spectra An object of S3 class \code{\link{Spectra}}.
+#'
+#' @param ...  Arguments to be passed downstream.
+#'
+#' @return None.  Results printed at console, perhaps a plot as well.
+#'
+#' @author Bryan A. Hanson, DePauw University.
+#'
+#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#'
+#' @keywords utilities
+#'
+#' @examples
+#' 
+#' data(metMUD1)
+#' sumSpectra(metMUD1)
+#' 
+#' 
+#' @export sumSpectra
+#'
+sumSpectra <- function(spectra, ...){
 	
 # Function to summarize objects of S3 class 'Spectra'
 # Part of ChemoSpec package
@@ -13,8 +48,12 @@ function(spectra, ...){
 
 	if (!("tol" %in% args)) {
 		fdiff <- diff(spectra$freq)
-		if (length(unique(fdiff)) == 1) tol <- abs(fdiff[1]) + abs(0.01*fdiff[1])
-		if (!length(unique(fdiff)) == 1) tol <- abs(min(fdiff)) + 0.01*abs(min(fdiff))
+		ff <- 0.5 # Fudge factor
+		if (length(unique(fdiff)) == 1) tol <- abs(fdiff[1])*ff
+		if (length(unique(fdiff)) > 1) tol <- abs(min(fdiff))*ff
+# version prior to December 2016:
+#		if (length(unique(fdiff)) == 1) tol <- abs(fdiff[1]) + abs(0.01*fdiff[1])
+#		if (!length(unique(fdiff)) == 1) tol <- abs(min(fdiff)) + 0.01*abs(min(fdiff))
 		h <- check4Gaps(spectra$freq, tol = tol)	
 		}
 
