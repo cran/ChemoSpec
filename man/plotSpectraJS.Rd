@@ -30,13 +30,13 @@ you quit R.  If you wish to read the file, don't minify the code, it will be
 unreadable.
 }
 \description{
-This function uses the d3.js JavaScript library to plot a \code{\link{Spectra}}
+This function uses the d3.js JavaScript library by Mike Bostock to plot a \code{\link{Spectra}}
 object interactively.  This is most useful for data exploration.  For high
 quality plots, consider \code{\link{plotSpectra}}.
 }
 \details{
 The spectral data are incorporated into the web page. Keep in mind that very large
-data sets, like NMR spectra with 32K points, will bog down the browser dramatically.
+data sets, like NMR spectra with 32K points, will bog down the browser.
 In these cases, you may need to limit the number of samples in passed to this function.
 See \code{\link{removeSample}} or use argument \code{which}.
 }
@@ -64,6 +64,7 @@ override your default with
 your browser at peacekeeper.futuremark.com  The most relevant score
 is the rendering category.
 }
+
 \examples{
 
 if (interactive()) {
@@ -74,9 +75,6 @@ if (interactive()) {
 }
 
 }
-\author{
-Bryan A. Hanson, DePauw University.
-}
 \references{
 \url{https://github.com/bryanhanson/ChemoSpec}
 }
@@ -84,5 +82,7 @@ Bryan A. Hanson, DePauw University.
 \code{\link{plotSpectra}} for non-interactive plotting.  Details
 about \code{d3.js} are at \url{www.d3js.org}.
 }
+\author{
+Bryan A. Hanson, DePauw University.
+}
 \keyword{plot}
-

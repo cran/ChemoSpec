@@ -125,15 +125,15 @@ var drawRefSpec = function(row) {
 	    xy.push({x: xdata[i], y: ydata[i]});
 	}
 
-	xscl = d3.scale.linear()
+	xscl = d3.scaleLinear()
     .domain(d3.extent(xy, function(d) {return d.x;})) //use just the x part
     .range([0, mapWidth])
 
-	yscl = d3.scale.linear()
+	yscl = d3.scaleLinear()
 		.domain(d3.extent(xy, function(d) {return d.y;})) //use just the y part
     .range([mapHeight-5, 5]) // keeps line from touching outline
 
-	spectrum = d3.svg.line()
+	spectrum = d3.line()
     .x(function(d) { return xscl(d.x);}) // apply the x scale to the x data
     .y(function(d) { return yscl(d.y);}) // apply the y scale to the y data
 
@@ -142,13 +142,11 @@ var drawRefSpec = function(row) {
 	refSpec.append("path")
 		.attr("transform", "translate(" + (lPad + specWidth + gap) +","
 			+ (tPad + specHeight - mapHeight) + ")")
-		.attr({width: mapWidth,
-			height: mapHeight,
-			"class": "line",
-			"class": "refSpectrum",
-			"d": spectrum(xy) // use the return value of spectrum(xy) as 'd'
-			})
-
+    .attr("width", mapWidth)
+		.attr("height", mapHeight)
+		.attr("class", "line")
+		.attr("class", "refSpectrum")
+		.attr("d", spectrum(xy)) // use the return value of spectrum(xy) as 'd'
 	drawRefAxis(xscl)
 
 } // end of drawRefSpec
@@ -164,10 +162,10 @@ var drawSpectra = function(data) {
 	ydata = getSpectrumIntValues(data)
 	// ydata is an array with just the rows of interest
 
-	xscl = d3.scale.linear()
+	xscl = d3.scaleLinear()
     .domain(d3.extent(xdata))
     .range([0, specWidth])
-	yscl = d3.scale.linear()
+	yscl = d3.scaleLinear()
 		.domain(arrayMinMax(ydata))
     .range([specHeight-5, 5]) // keeps line from touching outline
 
@@ -182,25 +180,22 @@ var drawSpectra = function(data) {
 		    xy.push({x: xdata[j], y: rowData[j]});
 		}
 
-		spectrum = d3.svg.line()
+		spectrum = d3.line()
 	    .x(function(d) { return xscl(d.x);}) // apply the x scale to the x data
 	    .y(function(d) { return yscl(d.y);}) // apply the y scale to the y data
 
-    // id's assigned via code should be upper case
 		Spectra = svg.append("g")
-			.attr({
-				"id": "SPECTRUM"
-				})
 
 		Spectra.append("path")
+			.attr("width", specWidth)
+			.attr("height", specHeight)
+		  .attr("stroke", Colors[rows[i]])
+			.attr("class", "line")
+			.attr("class", "spectrum")
+			.attr("id", "SPECTRUM")
+			.attr("d", spectrum(xy)) // use the return value of spectrum(xy) as 'd'
 			.attr("transform", "translate(" + lPad +","
 				+ (tPad) + ")")
-			.attr({width: specWidth,
-				height: specHeight,
-				stroke: Colors[rows[i]],
-				"class": "line",
-				"class": "spectrum",
-				"d": spectrum(xy)}) // use the return value of spectrum(xy) as 'd'
   } // End of master loop
 
 	drawSpecAxis(xscl)
@@ -212,9 +207,7 @@ var drawSpecAxis = function(xScale) {
 	var xAxis;
 
   d3.select("#SPEC_AXIS").remove(); // remove existing axis
-  xAxis = d3.svg.axis()
-  	.scale(xScale)
-  	.orient("bottom");
+  xAxis = d3.axisBottom(xScale);
 
 	svg.append("g")
 		.attr("id", "SPEC_AXIS")
@@ -230,9 +223,7 @@ var drawSpecAxis = function(xScale) {
 var drawRefAxis = function(xScale) {
 	var xAxis;
 
-  xAxis = d3.svg.axis()
-  	.scale(xScale)
-  	.orient("bottom")
+  xAxis = d3.axisBottom(xScale)
 		.ticks(5);
 
 	svg.append("g")
