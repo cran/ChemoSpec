@@ -4,6 +4,39 @@ Exploratory Chemometrics for Spectroscopy
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpec
 
+Changes in version 4.4.85 2017-07-27
+     + Improved documentation of aovPCAscores regarding plotting ellipses.
+     + Fixed a trivial bug in aov_pcaSpectra.
+     + Added a check to aov_pcaSpectra to ensure that there are not too many levels in argument fac compared to the number of samples.  This nuance was discovered in working through a inquiry brought by Jason James.  Basically, if the number of degrees of freedom (all combinations of levels in fac) exceeds the number of samples you get very strange plots and no error.  Jason figured this out -- thanks Jason!  Function now stops if there are too many levels.
+
+Changes in version 4.4.76 2017-07-13
+     + Fixed an export reference issue in files2SpectraObject
+
+Changes in version 4.4.72 2017-07-11
+     + Improved documentation in aovPCAscores.
+     + Added temporary check of speaq namespace availability to clupaSpectra as speaq requires data.table which is broken in the CRAN build system.
+     + Fixed some scale issues in sampleDistSpectra, improved example.
+
+Changes in version 4.4.68 2017-07-10
+     + Improved documentation in files2SpectraObject to include advice about allowed file names.
+     + Fixed a bug in groupNcolor for the situation where length(gr.crit) > 8.
+     + Vignette extensively updated.
+
+Changes in version 4.4.38 2017-07-07
+     + tryCatch is now used in files2SpectraObject with improved error messaging.
+     + ChemoSpec requires package speaq for clupaSpectra.  speaq requires data.table  On some platforms data.table may require some tricks in order to get it to build.  For this version I built data.table using the method described here: github.com/Rdatatable/data.table/wiki/Installation  Not sure if this will hang up people or not.
+
+Changes in version 4.4.31 2017-05-24
+     + Once again, improved the way tol is automatically handled in sumSpectra.  Special thanks to Dana Nadler for deciphering why the current method was going wrong.  Changes also made in check4Gaps.
+
+Changes in version 4.4.26 2017-03-31
+     + Improved normSpectra documentation.
+     + baselineSpectra now resets par() so the two panel display is properly canceled in interactive mode.  Suggested by Dana Nadler.
+
+Changes in version 4.4.24 2017-03-21
+     + Updated groupNcolor to handle larger numbers of groups more automatically.  Default symbols have changed so if one re-imports old data sets you will get different symbols.  Documentation in files2SpectraObject updated to reflect this change.
+     + LoopThruSpectra.R renamed loopThruSpectra.R to quiet a documentation complaint.
+
 Changes in version 4.4.17 2017-02-13
      + Checked against latest R & updated packages.
 
