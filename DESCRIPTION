@@ -1,8 +1,8 @@
 Package: ChemoSpec
 Type: Package
 Title: Exploratory Chemometrics for Spectroscopy
-Version: 4.4.85
-Date: 2017-07-27
+Version: 4.4.97
+Date: 2017-12-12
 Authors@R: c(person("Bryan A.", "Hanson", role = c("aut", "cre"), email =
     "hanson@depauw.edu"), person("Mike", "Bostock", role = c("cph", "ctb"),
     comment = "author of the d3.js library used in plotSpectraJS, http://d3js.org"))
@@ -29,10 +29,10 @@ Suggests: mvbutils, sna, knitr, IDPmisc, js, NbClust, lattice,
         amap, signal, rgl, readJDX, speaq
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-07-27 12:56:55 UTC; bryanhanson
+Packaged: 2017-12-12 14:21:32 UTC; bryanhanson
 Author: Bryan A. Hanson [aut, cre],
   Mike Bostock [cph, ctb] (author of the d3.js library used in
     plotSpectraJS, http://d3js.org)
 Maintainer: Bryan A. Hanson <hanson@depauw.edu>
 Repository: CRAN
-Date/Publication: 2017-07-27 21:26:15 UTC
+Date/Publication: 2017-12-12 17:15:08 UTC
