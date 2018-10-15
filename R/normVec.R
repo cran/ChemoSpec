@@ -14,7 +14,7 @@
 #' @return The normalized vector.
 #'
 #' @note The idea was taken from "An Introduction to rggobi" found at the ggobi
-#' web site: \url{http://www.ggobi.org}.
+#' web site (originally www.ggobi.org but not available as of June 2018).
 #'
 #' @author Bryan A. Hanson, DePauw University.
 #'
@@ -28,11 +28,12 @@
 #' range(x1)
 #' sd(x1)/diff(range(x1))
 #'
-#' x2 <- normVec(x1)
+#' x2 <- .normVec(x1)
 #' range(x2)
 #' sd(x2)/diff(range(x2))
 #' 
 #' 
-#' @export normVec
+#' @export
+#' @noRd
 #'
-normVec <- function(x) x/sqrt(sum(x^2))
+.normVec <- function(x) x/sqrt(sum(x^2))

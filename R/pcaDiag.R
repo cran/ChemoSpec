@@ -71,7 +71,7 @@ plot = c("OD", "SD"), use.sym = FALSE, ...) {
 # Function for PCA Diagnostic Plots (modified from Filzmosers version in {chemometrics})
 # Part of the ChemoSpec package.  Bryan Hanson, DePauw Univ, Sept 2009
 
-	if ("prcomp" %in% class(pca)) pca <- q2rPCA(pca)
+	if ("prcomp" %in% class(pca)) pca <- .q2rPCA(pca)
 	X <- spectra$data
 	X.pca <- pca
 	a <- pcs
@@ -86,12 +86,12 @@ plot = c("OD", "SD"), use.sym = FALSE, ...) {
     if ("SD" %in% plot) {
 		if (!use.sym) {
 			plot(SDist, ylim = c(0, max(SDist)), ylab = "score distance", 
-			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers based on Score Distance",
+			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers\nbased on Score Distance",
 			col = spectra$colors, pch = 20, ...)
 			}
 		if (use.sym) {
 			plot(SDist, ylim = c(0, max(SDist)), ylab = "score distance", 
-			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers based on Score Distance",
+			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers\nbased on Score Distance",
 			pch = spectra$sym, ...)
 			}
 		abline(h = critSD, lty = 2)
@@ -99,18 +99,18 @@ plot = c("OD", "SD"), use.sym = FALSE, ...) {
 		y.data <- subset(SDist, SDist > critSD)
 		x.data <- which(SDist %in% y.data, arr.ind = TRUE)
 		data <- cbind(x.data, y.data)
-		if (!length(x.data) == 0) labelExtremes(data, names = spectra$names[x.data], tol = 1.0)
+		if (!length(x.data) == 0) .labelExtremes(data, names = spectra$names[x.data], tol = 1.0)
         }
         
     if ("OD" %in% plot) {
 		if (!use.sym) {
 			plot(ODist, ylim = c(0, max(ODist)), ylab = "orthogonal distance", 
-			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers based on Orthogonal Distance",
+			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers\nbased on Orthogonal Distance",
 			col = spectra$colors, pch = 20, ...)
 			}
 		if (use.sym) {
 			plot(ODist, ylim = c(0, max(ODist)), ylab = "orthogonal distance", 
-			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers based on Orthogonal Distance",
+			xlab = spectra$desc, sub = sub, main = "Possible PCA Outliers\nbased on Orthogonal Distance",
 			pch = spectra$sym, ...)
 				}
 		abline(h = critOD, lty = 2)
@@ -118,7 +118,7 @@ plot = c("OD", "SD"), use.sym = FALSE, ...) {
 		y.data <- subset(ODist, ODist > critOD)
 		x.data <- which(ODist %in% y.data, arr.ind = TRUE)
 		data <- cbind(x.data, y.data)
-		if (!length(x.data) == 0) labelExtremes(data, names = spectra$names[x.data], tol = 1.0)
+		if (!length(x.data) == 0) .labelExtremes(data, names = spectra$names[x.data], tol = 1.0)
 		}
 		
     list(SDist = SDist, ODist = ODist, critSD = critSD, critOD = critOD)

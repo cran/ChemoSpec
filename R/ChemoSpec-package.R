@@ -1,6 +1,4 @@
 #'
-#'
-#'
 #' Exploratory Chemometrics for Spectroscopy
 #' 
 #' A collection of functions for top-down exploratory data analysis of spectral
@@ -15,7 +13,6 @@
 #' and help you get usable results quickly.  A vignette covering typical
 #' operations is available.
 #' 
-#' 
 #' @name ChemoSpec-package
 #' 
 #' @aliases ChemoSpec-package ChemoSpec
@@ -29,6 +26,18 @@
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #' 
 #' @keywords package multivariate
+#'
+#  This import/export business based on stackoverflow.com/a/35118850/633251
+#'
+#' @importFrom ChemoSpecUtils .addLegend chkSpectra sumSpectra sumGroups .plotScores
+#' @export  .addLegend chkSpectra sumSpectra sumGroups .plotScores
+#'
+#' @importFrom ChemoSpecUtils removeFreq removeGroup removeSample .groupNcolor
+#' @export removeFreq removeGroup removeSample .groupNcolor
+#'
+#' @importFrom ChemoSpecUtils .labelExtremes .plotScoresDecoration .plotScoresCor
+#' @export .labelExtremes .plotScoresDecoration .plotScoresCor
+#' 
 NULL
 
 

@@ -41,7 +41,7 @@ mM3 <- splitSpectraGroups(metMUD2, new.grps)
 
 # run aov_pcaSpectra
 mats <-aov_pcaSpectra(mM3, fac = c("geneBb", "geneCc"))
-apca1 <- aovPCAscores(mM3, mats, plot = 1, main = "aovPCA: B vs b")
+apca1 <- aovPCAscores(mM3, mats, plot = 1, main = "aovPCA: B vs b", ellipse = "cls")
 apca2 <- aovPCAscores(mM3, mats, plot = 2, main = "aovPCA: C vs c")
 apca3 <- aovPCAscores(mM3, mats, plot = 3, main = "aovPCA: Interaction Term")
 apca4 <- aovPCAloadings(spectra = mM3, LM = mats, pca = apca1,
@@ -59,7 +59,7 @@ Variance--Principal Component Analysis: ..." Analytica Chimica Acta 544.1-2
 \url{https://github.com/bryanhanson/ChemoSpec}
 }
 \seealso{
-This function calls \code{\link{avgFacLvls}}, and the results are
+The output of this function is used in
 used in \code{\link{aovPCAscores}} and \code{\link{aovPCAloadings}}.
 }
 \author{

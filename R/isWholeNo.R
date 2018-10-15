@@ -1,6 +1,4 @@
 #'
-#'
-#'
 #' Determine if a Number is a Whole Number
 #' 
 #' This function determines if a given number is a whole number within a given
@@ -22,9 +20,10 @@
 #' 
 #' @keywords utilities
 #' 
-#' @export isWholeNo
-#' 
-isWholeNo <- function(x, tol = .Machine$double.eps^0.5)  {
+#' @export
+#' @noRd
+#'
+.isWholeNo <- function(x, tol = .Machine$double.eps^0.5)  {
 	
 # Taken from the help to is.integer()
 # Bryan Hanson, DePauw Univ, Nov 2009
