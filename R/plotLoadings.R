@@ -1,9 +1,7 @@
 #'
-#'
 #' Plot PCA Loadings for a Spectra Object
 #' 
 #' Creates a multi-panel plot of loadings along with a reference spectrum.
-#' 
 #' 
 #' @param spectra An object of S3 class \code{\link{Spectra}}.
 #'
@@ -28,8 +26,8 @@
 #'
 #' @seealso See \code{\link{plot2Loadings}} to plot two loadings against each
 #' other, and \code{\link{sPlotSpectra}} for an alternative approach.
+#' Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'
 #' @keywords multivariate hplot
 #'
@@ -45,22 +43,14 @@
 #'
 #' @importFrom graphics plot
 #' @importFrom stats relevel
-# @importFrom lattice xyplot panel.number panel.xyplot
 #'
 plotLoadings <- function(spectra, pca, loads = c(1), ref = 1, ...) {
 	
-# Function to plot loadings vs. frequencies
-# Part of the ChemoSpec package
-# Bryan Hanson, DePauw University, June 2008
-
 	if (!requireNamespace("lattice", quietly = TRUE)) {
 		stop("You need to install package lattice to use this function")
 	}
 	
-	if (missing(spectra)) stop("No spectral data set provided")
-	if (missing(pca)) stop("No PCA results provided")
-	if (!class(spectra) == "Spectra") stop("Your spectral data set looks corrupt!")
-	if (!("princomp" %in% class(pca) || "prcomp" %in% class(pca))) stop("Your pca results look corrupt!")
+	.chkArgs(mode = 12L)
 	
 	# Stack the requested data into a data frame for plotting
 	

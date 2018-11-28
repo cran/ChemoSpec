@@ -23,20 +23,23 @@
 #' 
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #' 
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
-#' 
 #' @keywords package multivariate
+#'
+#' @seealso Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
 #  This import/export business based on stackoverflow.com/a/35118850/633251
 #'
-#' @importFrom ChemoSpecUtils .addLegend chkSpectra sumSpectra sumGroups .plotScores
-#' @export  .addLegend chkSpectra sumSpectra sumGroups .plotScores
+#' @importFrom ChemoSpecUtils rowDist hcaScores .shrinkLeaf .colLeaf .plotHCA .chkArgs
+#' @export rowDist hcaScores .shrinkLeaf .colLeaf .plotHCA .chkArgs
 #'
-#' @importFrom ChemoSpecUtils removeFreq removeGroup removeSample .groupNcolor
-#' @export removeFreq removeGroup removeSample .groupNcolor
+#' @importFrom ChemoSpecUtils chkSpectra sumSpectra sumGroups check4Gaps
+#' @export  chkSpectra sumSpectra sumGroups check4Gaps
 #'
-#' @importFrom ChemoSpecUtils .labelExtremes .plotScoresDecoration .plotScoresCor
-#' @export .labelExtremes .plotScoresDecoration .plotScoresCor
+#' @importFrom ChemoSpecUtils removeFreq removeGroup removeSample plotScores plotScree
+#' @export removeFreq removeGroup removeSample plotScores plotScree
+#'
+#' @importFrom ChemoSpecUtils .labelExtremes .addEllipseInfo .computeEllipses .addLegend .groupNcolor
+#' @export .labelExtremes .addEllipseInfo .computeEllipses .addLegend .groupNcolor
 #' 
 NULL
 

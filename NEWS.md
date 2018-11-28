@@ -1,0 +1,18 @@
+
+# ChemoSpec 5.0.207 2018-11-28
+
+## Improvements
+* `files2SpectraObject` can now accept optional arguments `path` and `recursive` to allow reading through a directory substructure.  In addition, a progress bar is now displayed unless `debug = TRUE`. Both features suggested by Reinhard Kerschner along with preliminary code (thanks!).
+
+# ChemoSpec 5.0.193 2018-11-20
+
+## Bug Fixes
+* Fixed a problem with color assignment in `.groupNcolor` (the problem seems to have been present from the very beginning).  Reported by Reinhard Kerschner (many thanks!). Note `.groupNcolor` now resides in `ChemoSpecUtils`.  Reported here for convenience.
+
+## Improvements
+* `matrix2SpectraObject` now uses `tryCatch()` to more gracefully fail and offer suggestions to user.
+* `files2SpectraObject`
+
+## Notices
+* Older news may be found via `news(package = "ChemoSpec")`.
+* The changelog/NEWS file has moved to [https://bryanhanson.github.io/ChemoSpec/](bryanhanson.github.io/ChemoSpec/), but you must know that since you are viewing it!

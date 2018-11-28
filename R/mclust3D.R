@@ -1,12 +1,10 @@
 #'
-#'
 #' mclust Analysis in 3D
 #' 
 #' This function conducts an mclust analysis of the data provided, and plots
 #' the points in 3D using \pkg{rgl} graphics.  An option is provided for displaying
 #' either classical or robust confidence ellipses.  An internal function not
 #' generally called by the user.  See \code{\link{mclust3dSpectra}} instead.
-#' 
 #' 
 #' @param data A matrix of 3 columns (corresponding to x, y, z) and samples in
 #' rows.
@@ -41,10 +39,9 @@
 #' @return The mclust model is returned invisibly, and a plot is produced.
 #'
 #' @seealso \code{\link[mclust]{Mclust}} for background on the method.
+#' Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
 #' @author Bryan A. Hanson, DePauw University.
-#'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'
 #' @keywords multivariate cluster
 #'
@@ -59,24 +56,17 @@
 #' z <- c(rnorm(10, -2, 0.5), rnorm(10, 3, 0.5))
 #' x[15] <- y[15] <- z[15] <- 4 # screw up one point
 #' my.truth <- c(rep("Z", 10), rep("Q", 10))
-#' mclust3D(cbind(x, y, z), title = "mclust3D demo",
+#' .mclust3D(cbind(x, y, z), title = "mclust3D demo",
 #' 	 t.pos = "G", truth = my.truth)
 #' }
 #' 
-#' @export mclust3D
+#' @export .mclust3D
+#' @noRd
 #'
-# @importFrom rgl open3d segments3d text3d points3d
-# @importFrom mclust Mclust classError
-# @importFrom RColorBrewer brewer.pal
-#'
-mclust3D <- function(data, ellipse = TRUE, rob = FALSE, 
+.mclust3D <- function(data, ellipse = TRUE, rob = FALSE, 
 	cl = 0.95, frac.pts.used = 0.8, truth = NULL,
 	title = "no title provided", t.pos = NULL, lab.opts = FALSE,
 	use.sym = FALSE, ...) {
-
-# Function to plot mclust results in 3D with confidence ellipses
-# Bryan Hanson, DePauw University, Dec 2009
-# This is the "plain" version that works w/o ChemoSpec package
 
 	if (!requireNamespace("mclust", quietly = TRUE)) {
 		stop("You need to install package mclust to use this function")

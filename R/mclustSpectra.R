@@ -1,5 +1,4 @@
 #'
-#'
 #' mclust Analysis of a Spectra Object PCA Results
 #' 
 #' This function is a wrapper for the \code{Mclust} function and associated
@@ -27,8 +26,7 @@
 #' @author Bryan A. Hanson, DePauw University.
 #'
 #' @seealso \code{\link[mclust]{Mclust}} for background on the method.
-#'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#' Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
 #' @keywords multivariate cluster
 #'
@@ -50,10 +48,8 @@
 mclustSpectra <- function(spectra, pca, pcs = c(1:3), dims = c(1,2),
 	plot = c("BIC", "proj", "error"), use.sym = FALSE, ...) {
 
-# Wrapper to mclust functions
-# Part of the ChemoSpec package
-# Bryan Hanson, DePauw University, Dec 2009
-
+	.chkArgs(mode = 12L)
+	
 	if (!requireNamespace("mclust", quietly = TRUE)) {
 		stop("You need to install package mclust to use this function")
 	}

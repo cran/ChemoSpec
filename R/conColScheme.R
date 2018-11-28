@@ -21,9 +21,8 @@
 #' @author Bryan A. Hanson, DePauw University.
 #' 
 #' @seealso For a discussion of general issues of color, see
-#' \code{\link{colorSymbol}}.
-#' 
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#' \code{\link{colorSymbol}}. Additional documentation at
+#' \url{https://bryanhanson.github.io/ChemoSpec/}
 #' 
 #' @keywords utilities color
 #' 
@@ -38,11 +37,8 @@
 #' 
 conColScheme <- function(spectra, old = levels(as.factor(spectra$colors)), new = NULL){
 	
-# Function to convert color schemes in a Spectra object
-# Part of ChemoSpec package
-# Bryan Hanson, DePauw Univ, Dec 2009
-	
-	chkSpectra(spectra) # verify it's legit
+	.chkArgs(mode = 11L)
+	chkSpectra(spectra)
 	if (!length(old) == length(new)) stop("Old and new color schemes not of same length")
 	new.spec <- spectra
 	

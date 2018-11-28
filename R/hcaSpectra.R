@@ -1,12 +1,9 @@
 #'
-#'
-#'
 #' Plot HCA Results of a Spectra Object
 #' 
 #' A wrapper which carries out HCA and plots a dendrogram colored by the
 #' information in a \code{\link{Spectra}} object.  Many methods for computing
 #' the clusters and distances are available.
-#' 
 #' 
 #' @param spectra An object of S3 class \code{\link{Spectra}}.
 #' 
@@ -31,11 +28,9 @@
 #' 
 #' @seealso \code{\link{hclust}} for the underlying function.
 #' \code{\link{hcaScores}} for similar analysis of PCA scores from a
-#' \code{\link{Spectra}} object. \code{\link{plotHCA}} for the function that
-#' actually does the plotting.
-#' 
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
-#' 
+#' \code{\link{Spectra}} object.  Additional documentation at
+#' \url{https://bryanhanson.github.io/ChemoSpec/}
+#'
 #' @keywords multivariate cluster
 #' 
 #' @examples
@@ -52,11 +47,7 @@ hcaSpectra <- function(spectra,
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 
-# Function to carry out HCA, basically a wrapper to existing methods
-# Part of the ChemoSpec package
-# Bryan Hanson, DePauw University, June 2008
-
-	if (missing(spectra)) stop("No spectral data provided")
+	.chkArgs(mode = 11L)
 	chkSpectra(spectra)	
 	
 	if (use.sym) spectra$names <- paste(spectra$alt.sym, spectra$names, sep = " ")
@@ -66,7 +57,7 @@ hcaSpectra <- function(spectra,
 
 	hclst <- hclust(distance, method = c.method)
 
-	d <- plotHCA(spectra = spectra, hclst = hclst, sub.title = sub.title,
+	d <- .plotHCA(spectra = spectra, hclst = hclst, sub.title = sub.title,
 		use.sym = use.sym, leg.loc = leg.loc, ...)
 	L = list(hclst = hclst, dend = d)
 	return(L)

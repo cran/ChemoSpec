@@ -9,7 +9,6 @@
 #' determine which variables are contributing the most to the clustering on a
 #' score plot.
 #' 
-#' 
 #' @param spectra An object of S3 class \code{\link{Spectra}}.
 #'
 #' @param pca An object of class \code{\link{prcomp}}, modified to include a
@@ -34,9 +33,9 @@
 #'
 #' @seealso See \code{\link{plotLoadings}} to plot one loading against the
 #' original variable (frequency) axis.  See \code{\link{sPlotSpectra}} for
-#' a different approach.
+#' a different approach.  Additional documentation at
+#' \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'
 #' @keywords multivariate hplot
 #'
@@ -58,10 +57,8 @@ plot2Loadings <- function(spectra, pca, loads = c(1,2), tol = 0.05, ...) {
 # Part of the ChemoSpec package
 # Bryan Hanson, DePauw University, June 2008
 
+	.chkArgs(mode = 12L)
 	if (length(loads) != 2) stop("You must choose exactly 2 loadings to plot.")
-	if (missing(spectra)) stop("No spectral data set provided")
-	if (missing(pca)) stop("No PCA results provided")
-	if (!("princomp" %in% class(pca) || "prcomp" %in% class(pca))) stop("Your pca results look corrupt!")
 	chkSpectra(spectra)
 	
 	# pull the requested loadings

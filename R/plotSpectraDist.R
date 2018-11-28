@@ -1,6 +1,4 @@
 #'
-#'
-#'
 #' Plot the Distance Between Spectra in a Spectra Object
 #' 
 #' This function plots the distance between a reference spectrum and all other
@@ -20,9 +18,9 @@
 #' @return A data frame containing the data plotted (sample names, sample
 #' colors, distances).
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @seealso Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#' @author Bryan A. Hanson, DePauw University.
 #'
 #' @keywords hplot multivariate
 #'
@@ -43,13 +41,7 @@
 #'
 plotSpectraDist <- function(spectra, method = "pearson", ref = 1, labels = TRUE, ...) {
 	
-# Compute distances between spectra and display the results
-# Part of the ChemoSpec package
-# Bryan Hanson, DePauw University, March 2016
-	
-	#print(length(ref))
-	#if (length(ref > 1L)) stop("ref should be a single number")
-	if (missing(spectra)) stop("No spectral data provided")
+	.chkArgs(mode = 11L)
 	chkSpectra(spectra)
 	
 	DM <- as.matrix(rowDist(spectra$data, method = method))

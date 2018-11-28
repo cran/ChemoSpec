@@ -4,6 +4,29 @@ Exploratory Chemometrics for Spectroscopy
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpec
 
+Changes in version 5.0.xxx 2018-11-xx
+     + Fixed a problem with color assignment in .groupNcolor (the problem seems to have been present from the very beginning).  Reported by Reinhard Kerschner (many thanks!). Note .groupNcolor now resides in ChemoSpecUtils.  Reported here for convenience.
+     + files2SpectraObject now uses tryCatch to more gracefully fail and offer suggestions to user.
+     + From this version onward, this NEWS file will not be updated.  Instead, get news about ChemoSpec development at https://bryanhanson.github.io/ChemoSpec/
+
+Changes in version 5.0.165 2018-11-09
+     + Consistent argument checking implemented via ChemoSpecUtils::.chkArgs.
+
+Changes in version 5.0.140 2018-10-28
+     + plotScree2 deprecated.  The same plot can now be made with plotScree(pca, style = "alt").
+     + plotScores, plotScree made generic and moved to ChemoSpecUtils.
+     + hcaScores made generic and moved to ChemoSpecUtils.
+     + Works with devel version of ChemoSpecUtils.
+
+Changes in version 5.0.98 2018-10-21
+     + Continued polishing pkgdown site details.
+     + Fixed issue in plotScores where only PCs 1:2 were hardwired accidently.
+
+Changes in version 5.0.94 2018-10-17
+     + Updated .bib for vignette to work with pkgdown.
+     + Setup pkgdown infrastructure.
+     + plotHCA and mclust3D moved to non-user-facing status.
+
 Changes in version 5.0.88 2018-10-14
      + Freshened package description.
      + Checked against R devel r75432 which is R 3.5.1 patched.

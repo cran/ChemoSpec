@@ -34,6 +34,7 @@
 #' 
 #' @seealso The use of this function can be seen in
 #' \code{\link{aov_pcaSpectra}}.  See also \code{\link{plotScores}}.
+#' Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #' 
 #' @references Pinto, Bosc, Nocairi, Barros, and Rutledge. "Using ANOVA-PCA for
 #' Discriminant Analysis: ..." Analytica Chimica Acta 629.1-2 (2008): 47-55.
@@ -41,8 +42,6 @@
 #' Harrington, Vieira, Espinoza, Nien, Romero, and Yergey. "Analysis of
 #' Variance--Principal Component Analysis: ..." Analytica Chimica Acta 544.1-2
 #' (2005): 118-27.
-#' 
-#' \url{https://github.com/bryanhanson/ChemoSpec}
 #' 
 #' @keywords multivariate htest
 #' 
@@ -56,8 +55,10 @@ aovPCAscores <- function(spectra, LM, plot = 1, type = "class", choice = NULL, .
 
 # LM is the list of matrices from aov_pcaSpectra
 
+	.chkArgs(mode = 11L)
+	
 	if (plot > length(LM)){
-		stop("Error, plot/matrix does not exist. Please choose a different plot!")}
+		stop("Error, matrix to be plotted does not exist. Please choose a different plot!")}
 	
 	chkSpectra(spectra)
 	
@@ -68,37 +69,9 @@ aovPCAscores <- function(spectra, LM, plot = 1, type = "class", choice = NULL, .
 	spectra$data <- LM[[plot]] + LM$Res.Error
 
 	if (is.null(choice)) choice = "noscale"
-	if (type == "class") pca <- c_pcaSpectra(spectra, choice = choice, cent = FALSE)
-	if (type == "rob") pca <- r_pcaSpectra(spectra, choice = choice)
+	if (type == "class") so <- c_pcaSpectra(spectra, choice = choice, cent = FALSE)
+	if (type == "rob") so <- r_pcaSpectra(spectra, choice = choice)
 
-#  Create titles for each graph depending on number of factors and which graph was specified. 
-
-	if (length(LM) == 3) {
-		if (plot == 1) title = names(LM)[1]
-		if (plot == 2) title = names(LM)[2]
-		if (plot == 3) title = names(LM)[3]
-		}
-		
-	if (length(LM) == 5) {
-		if (plot == 1) title = names(LM)[1]
-		if (plot == 2) title = names(LM)[2]
-		if (plot == 3) title = names(LM)[3]
-		if (plot == 4) title = names(LM)[4]
-		if (plot == 5) title = names(LM)[5]
-		}
-		
-	if (length(LM) == 8) {
-		if (plot == 1) title = names(LM)[1]
-		if (plot == 2) title = names(LM)[2]
-		if (plot == 3) title = names(LM)[3]
-		if (plot == 4) title = names(LM)[4]
-		if (plot == 5) title = names(LM)[5]
-		if (plot == 6) title = names(LM)[6]
-		if (plot == 7) title = names(LM)[7]
-		if (plot == 8) title = names(LM)[8]
-		}
-	
-	# As of v 2.0, title is no longer used, users can create one manually
-	plotScores(spectra = spectra, pca, ...)	
-	return(pca)
+	plotScores(spectra, so, ...)	# at this point, just a typical score plot
+	return(so)
 	}

@@ -1,6 +1,4 @@
 #'
-#'
-#'
 #' Create New Groups from an Existing Spectra Object
 #' 
 #' This function takes an existing \code{\link{Spectra}} object and uses your
@@ -46,9 +44,8 @@
 #'
 #' @author Bryan A. Hanson, DePauw University.
 #'
-#' @seealso \code{\link{conColScheme}}.
-#'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
+#' @seealso \code{\link{conColScheme}}
+#' Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
 #' @keywords utilities
 #'
@@ -72,16 +69,7 @@
 #'
 splitSpectraGroups <- function(spectra, inst = NULL, rep.cols = NULL, ...) {
 
-# Function to split groups in a Spectra object
-# Part of the ChemoSpec package
-# Bryan Hanson, DePauw University, July 2010
-
-# Revised June 2011 to work with only one instruction.
-# Also added the ability to replace the color scheme
-# with a new one corresponding to the new levels.
-# This is different effect than conColScheme.
-
-	if (missing(spectra)) stop("No spectral data set provided")
+	.chkArgs(mode = 11L)
 	chkSpectra(spectra)
 	if (is.null(inst)) stop("No splitting instructions provided")
 

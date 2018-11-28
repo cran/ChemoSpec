@@ -1,13 +1,10 @@
 #'
-#'
-#'
 #' s-Plot of Spectra Data (Post PCA)
 #' 
 #' Produces a scatter plot of the correlation of the
 #' variables against their covariance for a chosen principal component.  It
 #' allows visual identification of variables driving the separation and thus is
 #' a useful adjunct to traditional loading plots.
-#' 
 #' 
 #' @param spectra An object of S3 class \code{\link{Spectra}}.
 #'
@@ -34,7 +31,7 @@
 #' Compounds Usings OPLS Class Models" Analytical Chemistry Vol.80 no.1 pgs.
 #' 115-122 (2008).
 #' 
-#' \url{https://github.com/bryanhanson/ChemoSpec}
+#' @seealso Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #'
 #' @keywords hplot
 #'
@@ -57,11 +54,9 @@ sPlotSpectra <- function(spectra, pca, pc = 1, tol = 0.05, ...) {
 ##  Matthew J. Keinsley
 ##  DePauw University, July 2011
 
-	if (length(pc) != 1) stop("You must choose exactly 1 pc to plot.")
-	if (missing(spectra)) stop("No spectral data set provided")
-	if (missing(pca)) stop("No PCA results provided")
-	if (!("princomp" %in% class(pca) || "prcomp" %in% class(pca))) stop("Your pca results look corrupt!")
+	.chkArgs(mode = 12L)
 	chkSpectra(spectra)
+	if (length(pc) != 1) stop("You must choose exactly 1 pc to plot.")
 
 	centspec <- scale(spectra$data, scale = FALSE)
 

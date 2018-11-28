@@ -41,9 +41,8 @@
 #' 
 #' @author Bryan A. Hanson, DePauw University.
 #' 
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
-#' 
 #' @keywords hplot
+#' @seealso Additional documentation at \url{https://bryanhanson.github.io/ChemoSpec/}
 #' 
 #' @examples
 #' 
@@ -63,6 +62,8 @@ baselineSpectra <- function(spectra, int = TRUE, retC = FALSE, ...) {
 	# or handle it locally, with the linear method.
 	# "method" is not a formal argument for compatibility with baseline
 	# but we do need it if processing locally.
+	
+	.chkArgs(mode = 11L)
 	
 	dots <- list(...)
 	linear <- FALSE

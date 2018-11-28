@@ -15,7 +15,7 @@ desc <- packageDescription("ChemoSpec")
 
 # Stuff specifically for knitr:
 
-#opts_chunk$set(out.width = "0.8\\textwidth", fig.align = "center", fig.width = 7, fig.height = 7, tidy = FALSE, tidy.opts = list(width.cutoff = 25), cache = FALSE)
+#opts_chunk$set(eval = FALSE)
 
 ## ----Chunk1,  results = "hide", eval = FALSE----
 #  source("My_First_ChemoSpec.R")
@@ -129,81 +129,80 @@ SrE3.IR <- removeFreq(SrE2.IR,
 sumSpectra(SrE3.IR)
 
 ## ----Chunk7, fig.cap = "\\label{gaps}Identifying gaps in a data set."----
-check4Gaps(SrE3.IR$freq, SrE3.IR$data[1,],
-  plot = TRUE)
+check4Gaps(SrE3.IR$freq, SrE3.IR$data[1,])
 
 ## ----Chunk19, fig.cap = "\\label{hca}Hierarchical cluster analysis."----
 HCA <- hcaSpectra(SrE3.IR, main = myt)
 
 ## ----Chunk10a, fig.cap = "\\label{classPCA}Classical PCA scores."----
-class <- c_pcaSpectra(SrE3.IR,
+c_res <- c_pcaSpectra(SrE3.IR,
   choice = "noscale")
-plotScores(SrE3.IR, class,
+plotScores(SrE3.IR, c_res,
   main = myt,
   pcs = c(1,2),
   ellipse = "rob",
   tol = 0.01)
 
 ## ----Chunk21, fig.cap = "\\label{robPCA}Robust PCA scores."----
-robust <- r_pcaSpectra(SrE3.IR,
+r_res <- r_pcaSpectra(SrE3.IR,
   choice = "noscale")
-plotScores(SrE3.IR, robust,
+plotScores(SrE3.IR, r_res,
   main = myt,
   pcs = c(1,2),
   ellipse = "rob",
   tol = 0.01)
 
 ## ----Chunk22, fig.cap = "\\label{OD}Diagnostics: orthogonal distances."----
-diagnostics <- pcaDiag(SrE3.IR, class,
+diagnostics <- pcaDiag(SrE3.IR, c_res,
   pcs = 2,
   plot = "OD")
 
 ## ----Chunk23, fig.cap = "\\label{SD}Diagnostics: score distances."----
-diagnostics <- pcaDiag(SrE3.IR, class,
+diagnostics <- pcaDiag(SrE3.IR, c_res,
   pcs = 2,
   plot = "SD")
 
 ## ----Chunk24, fig.cap = "\\label{scree}Scree plot."----
-plotScree(class, main = myt)
+plotScree(c_res, main = myt)
 
 ## ----Chunk24a, fig.cap = "\\label{scree2}Alternate style scree plot."----
-plotScree2(class, main = myt)
+plotScree(c_res, style = "alt", main = myt)
 
 ## ----Chunk25, fig.cap = "\\label{boot}Bootstrap analysis for no. of principal components."----
 out <- cv_pcaSpectra(SrE3.IR,
   pcs = 5)
 
 ## ----Chunk26,  results = "hide", eval = FALSE----
-#  plotScoresRGL(SrE3.IR, class,
+#  plotScoresRGL(SrE3.IR, c_res,
 #    main = "S. repens IR Spectra",
 #    leg.pos = "A",
 #    t.pos = "B") # not run - it's interactive!
 
 ## ----Chunk27, fig.cap = "\\label{s3D}Plotting scores in 3D using plotScores3D.", fig.dim = c(7,7), out.width = "\\linewidth", out.height = "\\linewidth"----
-plotScores3D(SrE3.IR, class,
+plotScores3D(SrE3.IR, c_res,
   main = myt,
   ellipse = FALSE)
 
 ## ----Chunk29, fig.cap = "\\label{load}Loading plot.", fig.dim = c(7,7), out.width = "\\linewidth", out.height = "\\linewidth"----
-plotLoadings(SrE3.IR, class,
+plotLoadings(SrE3.IR, c_res,
   main = myt,
   loads = c(1, 2),
   ref = 1)
 
 ## ----Chunk30, fig.cap = "\\label{load2}Plotting one loading vs. another."----
-res <- plot2Loadings(SrE3.IR, class,
+res <- plot2Loadings(SrE3.IR, c_res,
   main = myt,
   loads = c(1, 2),
   tol = 0.002)
 
 ## ----Chunk30a,  fig.cap = "\\label{splot}s-Plot to identify influential frequencies."----
-spt <- sPlotSpectra(SrE3.IR, class,
+spt <- sPlotSpectra(SrE3.IR, c_res,
   main = myt,
   pc = 1,
   tol = 0.001)
 
 ## ----Chunk30b,  fig.cap = "\\label{splot2}s-Plot detail."----
-spt <- sPlotSpectra(SrE3.IR, class,
+spt <- sPlotSpectra(SrE3.IR, c_res,
   main = "Detail of s-Plot",
   pc = 1,
   tol = 0.05,
@@ -211,29 +210,29 @@ spt <- sPlotSpectra(SrE3.IR, class,
   ylim = c(-1.05, -0.9))
 
 ## ----Chunk31,  results = "hide", eval = FALSE----
-#  hcaScores(SrE3.IR,  class,
+#  hcaScores(SrE3.IR,  c_res,
 #    scores = c(1:5),
 #    main = myt)
 
 ## ----Chunk35, fig.cap = "\\label{mclust1}mclust chooses an optimal model.", results = "hide"----
-model <- mclustSpectra(SrE3.IR, class,
+model <- mclustSpectra(SrE3.IR, c_res,
   plot = "BIC",
   main = myt)
 
 ## ----Chunk36, fig.cap = "\\label{mclust2}mclust's thoughts on the matter.", results = "hide"----
-model <- mclustSpectra(SrE3.IR, class,
+model <- mclustSpectra(SrE3.IR, c_res,
   plot = "proj",
   main = myt)
 
 ## ----Chunk37, fig.cap = "\\label{mclust3}Comparing mclust results to the TRUTH.", results = "hide"----
-model <- mclustSpectra(SrE3.IR, class,
+model <- mclustSpectra(SrE3.IR, c_res,
   plot = "errors",
   main = myt,
   truth = SrE3.IR$groups)
 
 ## ----Chunk33,  results = "hide", eval = FALSE----
 #  # not run - it's interactive!
-#  mclust3dSpectra(SrE3.IR, class)
+#  mclust3dSpectra(SrE3.IR, c_res)
 
 ## ----Chunk4,  echo = FALSE, fig.cap = "\\label{colors}Recommended color sets in \texttt{ChemoSpec}."----
 par(mfrow = c(2,1), mar = c(3, 1, 2, 1))
