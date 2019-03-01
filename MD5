@@ -1,9 +1,9 @@
-74f264b2f91735fc3106dd0a021057af *DESCRIPTION
+5605be7aa04e599d7dc1f8ed13345900 *DESCRIPTION
 cda3dacecf727e097f82743a9f251adc *NAMESPACE
 57583d3b4b2604074c711dee4358f14d *NEWS
-1400fb53c5f5b280efa4e514e18faf7b *NEWS.md
+3e8fe71ab4c2e76b0f8ee3da755e6736 *NEWS.md
 ae649ab6229553cc0c237861ffcf0758 *R/ChemoSpec-package.R
-a00fe92331d4a21e22c6ff4cfaeb43ad *R/LoopThruSpectra.R
+797a6e3dbac204dd525b99640d5fdfc5 *R/LoopThruSpectra.R
 f9965d4c84c6601b957d47c2c762918c *R/MUD.R
 3fe1b4756190c45ea7a5c867ace91b41 *R/Spectra.R
 8a6e6ddb489afe37e26f46bd57939c3a *R/SrE.R
@@ -73,9 +73,9 @@ dd2e7e7ed72e053278f0b45e49cdca8b *data/alignMUD.RData
 e259c4d4ae91c6d4172f55ec1a92facd *data/datalist
 93b5f37c3d0950e2e7f8c6bfbe422e9b *data/metMUD1.RData
 5c2becf161afc2d61d83b1d57f2446e3 *data/metMUD2.RData
-0a4b2e2edf2404f1269780dc3c0f64c4 *inst/doc/ChemoSpec.R
-66fec8da317c2d2d11217d3fe4945c60 *inst/doc/ChemoSpec.Rmd
-186c15070bfa91a84cb30d5a53a42c75 *inst/doc/ChemoSpec.pdf
+0e7c7267dc89457a3baf75e0f0c1d05b *inst/doc/ChemoSpec.R
+a2d5c9df206a3a33e913b3cdecd8de9f *inst/doc/ChemoSpec.Rmd
+60d9e61ab970730662aa3cc715125f86 *inst/doc/ChemoSpec.pdf
 ddc0b80fa6dc58028d734fff5bb83e88 *inst/extdata/PCRF.jdx
 84b8bcbb4939380ceb8d0468f9f9d8b7 *inst/extdata/pS.css
 481b8cf0d5a29beb52ee0772f929062b *inst/extdata/pS_brushNguides.js
@@ -135,7 +135,7 @@ a9fdd7765f04485e1173750d0b4d3820 *man/sumGroups.Rd
 2737d9a45688f97100f53b25e6e37efe *man/surveySpectra.Rd
 5973f507c4770a60255382d834cb9b50 *tests/testthat.R
 4635587dcbf5930eca729c05e5530e17 *tests/testthat/test-all.R
-66fec8da317c2d2d11217d3fe4945c60 *vignettes/ChemoSpec.Rmd
+a2d5c9df206a3a33e913b3cdecd8de9f *vignettes/ChemoSpec.Rmd
 e838c4b510a49321997780fc646b75f9 *vignettes/MetabPreProcess.pdf
 4dc9da982f0d71c252b57729d4af5692 *vignettes/aovPCA1.pdf
 8e5f15d886e694abf8d1fc7453206adf *vignettes/aovPCA2.pdf
