@@ -234,11 +234,3 @@ model <- mclustSpectra(SrE3.IR, c_res,
 #  # not run - it's interactive!
 #  mclust3dSpectra(SrE3.IR, c_res)
 
-## ----Chunk4,  echo = FALSE, fig.cap = "\\label{colors}Recommended color sets in \texttt{ChemoSpec}.", fig.height = 4----
-par(mfrow = c(2,1), mar = c(3, 1, 2, 1))
-display.brewer.pal(8, "Set1")
-title(main = "ChemoSpec Primary Scheme")
-display.brewer.pal(8, "Set2")
-title(main = "ChemoSpec Pastel Scheme")
-par(mfrow = c(1,1))
-
