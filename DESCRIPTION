@@ -1,8 +1,8 @@
 Package: ChemoSpec
 Type: Package
 Title: Exploratory Chemometrics for Spectroscopy
-Version: 5.1.48
-Date: 2019-07-25
+Version: 5.2.12
+Date: 2020-01-23
 Authors@R: c(
     person("Bryan A.", "Hanson",
       role = c("aut", "cre"), email =
@@ -28,21 +28,21 @@ Description: A collection of functions for top-down exploratory data analysis
     is available.
 License: GPL-3
 Depends: R (>= 3.5), ChemoSpecUtils (>= 0.3)
-Imports: plyr, stats, utils, grDevices
+Imports: plyr, stats, utils, grDevices, readJDX (>= 0.4)
 Suggests: IDPmisc, knitr, js, NbClust, lattice, baseline, mclust, pls,
         clusterCrit, R.utils, RColorBrewer, seriation, MASS,
-        robustbase, grid, pcaPP, jsonlite, gsubfn, signal, rgl, readJDX
-        (>= 0.3), speaq, tinytest, elasticnet, irlba, amap, rmarkdown,
-        pinp, chemometrics, kableExtra
+        robustbase, grid, pcaPP, jsonlite, gsubfn, signal, rgl, speaq,
+        tinytest, elasticnet, irlba, amap, rmarkdown, pinp,
+        chemometrics, kableExtra
 URL: https://bryanhanson.github.io/ChemoSpec/
 BugReports: https://github.com/bryanhanson/ChemoSpec/issues
 ByteCompile: TRUE
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 NeedsCompilation: no
-Packaged: 2019-07-25 13:24:59 UTC; bryanhanson
+Packaged: 2020-01-23 20:16:00 UTC; bryanhanson
 Repository: CRAN
-Date/Publication: 2019-07-25 19:00:02 UTC
+Date/Publication: 2020-01-24 19:30:02 UTC
 Author: Bryan A. Hanson [aut, cre] (<https://orcid.org/0000-0003-3536-8246>),
   Mike Bostock [cph, ctb] (author of the d3.js library used by
     plotSpectraJS, http://d3js.org),
