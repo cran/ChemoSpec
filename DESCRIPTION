@@ -1,8 +1,8 @@
 Package: ChemoSpec
 Type: Package
 Title: Exploratory Chemometrics for Spectroscopy
-Version: 5.3.11
-Date: 2021-03-24
+Version: 5.3.21
+Date: 2021-07-05
 Authors@R: c(
     person("Bryan A.", "Hanson",
       role = c("aut", "cre"), email =
@@ -41,9 +41,9 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-03-24 17:22:50 UTC; bryanhanson
+Packaged: 2021-07-05 19:51:16 UTC; bryanhanson
 Repository: CRAN
-Date/Publication: 2021-03-27 02:10:05 UTC
+Date/Publication: 2021-07-06 08:10:09 UTC
 Author: Bryan A. Hanson [aut, cre] (<https://orcid.org/0000-0003-3536-8246>),
   Mike Bostock [cph, ctb] (author of the d3.js library used by
     plotSpectraJS, http://d3js.org),
