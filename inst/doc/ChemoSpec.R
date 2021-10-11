@@ -7,13 +7,16 @@ suppressMessages(library("knitr"))
 suppressMessages(library("ChemoSpec"))
 suppressMessages(library("mclust"))
 suppressMessages(library("RColorBrewer"))
+suppressMessages(library("ggplot2"))
+suppressMessages(library("patchwork"))
 
-desc <- packageDescription("ChemoSpec")
+CSdesc <- packageDescription("ChemoSpec")
+CSUdesc <- packageDescription("ChemoSpecUtils")
 
 # Stuff specifically for knitr:
 
 # Create a temp bib file w/citations of installed pkgs, on the fly
-knitr::write_bib(c("knitr", "mclust", "baseline", "hyperSpec"), file = "manuals.bib", prefix = "R_")
+knitr::write_bib(c("knitr", "mclust", "baseline", "hyperSpec", "ggplot2", "plotly"), file = "manuals.bib", prefix = "R_")
 
 # Hook for figure size control
 knitr::opts_hooks$set(sq.fig = function(options) {
@@ -63,49 +66,34 @@ data(SrE.IR) # makes the data available
 sumSpectra(SrE.IR)
 
 ## ----sample-plot, fig.cap = "Sample plot."------------------------------------
-# We'll make a fancy title here
-# and re-use in other plots
-myt <- expression(
-  bolditalic(Serenoa)~
-  bolditalic(repens)~
-  bold(Extract~IR~Spectra))
-plotSpectra(SrE.IR,
-  main = myt,
-  which = c(1, 2, 14, 16),
-  yrange = c(0, 1.6),
-  offset = 0.4,
-  lab.pos = 2200)
+# We'll make a fancy title here and re-use in other plots
+myt <- expression(bolditalic(Serenoa)~bolditalic(repens)~bold(Extract~IR~Spectra))
+p <- plotSpectra(SrE.IR, which = c(1, 2, 14, 16), yrange = c(0, 1.6),
+  offset = 0.4, lab.pos = 2200)
+p <- p + ggtitle(myt)
+p # when using ggplot2, you have to "call" the object containing the plot
 
 ## ----subplot, fig.cap = "Detail of the carbonyl region."----------------------
-plotSpectra(SrE.IR,
-  main = myt,
-  which = c(1, 2, 14, 16),
-  yrange = c(0, 0.6),
-  offset = 0.1,
-  lab.pos = 1775,
-  xlim = c(1650, 1800))
+p <- plotSpectra(SrE.IR, which = c(1, 2, 14, 16), yrange = c(0, 0.6),
+  offset = 0.1, lab.pos = 1775)
+p <- p + ggtitle(myt) + coord_cartesian(xlim = c(1650, 1800))
+p
 
 ## -----------------------------------------------------------------------------
-# if there are only a few spectra
-# show all of the names
+# if there are only a few spectra show all of the names
 SrE.IR$names
-# if there are a lot of spectra,
-# grep for the desired names
+# if there are a lot of spectra, grep for the desired names
 grep("OO", SrE.IR$names)
 
 ## ----baseline, fig.cap = "Correcting baseline drift.", sq.fig = TRUE----------
-SrE2.IR <- baselineSpectra(SrE.IR,
-  int = FALSE,
-  method = "modpolyfit",
-  retC = TRUE)
+SrE2.IR <- baselineSpectra(SrE.IR, int = FALSE, method = "modpolyfit", retC = TRUE)
 
 ## -----------------------------------------------------------------------------
 tmp <- binSpectra(SrE.IR, bin.ratio = 4)
 sumSpectra(tmp)
 
 ## -----------------------------------------------------------------------------
-noTD <- removeSample(SrE2.IR,
-  rem.sam = c("TD_adSrE"))
+noTD <- removeSample(SrE2.IR, rem.sam = c("TD_adSrE"))
 sumSpectra(noTD)
 grep("TD_adSrE", noTD$names)
 
@@ -116,42 +104,33 @@ SrE2.IR$names[SrE]
 SrE # gives the corresponding indices
 
 ## ----survey-1, fig.cap = "Checking for regions of no interest."---------------
-surveySpectra(SrE2.IR,
-  method = "iqr",
-  main = myt,
-  by.gr = FALSE)
+p <- surveySpectra(SrE2.IR, method = "iqr", by.gr = FALSE)
+p <- p + ggtitle(myt)
+p
 
 ## ----survey-2, fig.cap = "Checking for regions of no interest."---------------
-surveySpectra2(SrE2.IR,
-  method = "iqr",
-  main = myt)
+p <- surveySpectra2(SrE2.IR, method = "iqr")
+p <- p + ggtitle(myt)
+p
 
 ## ----survey-3, fig.cap = "Detail of carbonyl region."-------------------------
-surveySpectra(SrE2.IR,
-  method = "iqr",
-  main = "Detail of Carbonyl Region",
-  by.gr = FALSE,
-  xlim = c(1650, 1800))
+p <- surveySpectra(SrE2.IR, method = "iqr", by.gr = FALSE)
+p <- p + ggtitle("Detail of Carbonyl Region") + coord_cartesian(xlim = c(1650, 1800))
+p
 
 ## ----survey-4, fig.cap = "Detail of carbonyl region by group."----------------
-surveySpectra(SrE2.IR,
-  method = "iqr",
-  main = "Detail of Carbonyl Region",
-  by.gr = TRUE,
-  xlim = c(1650, 1800))
+p <- surveySpectra(SrE2.IR, method = "iqr", by.gr = TRUE)
+p <- p + ggtitle("Detail of Carbonyl Region") + coord_cartesian(xlim = c(1650, 1800))
+p
 
 ## ----survey-5, fig.cap = "Inspection of an uninteresting spectral region."----
-surveySpectra(SrE2.IR,
-  method = "iqr",
-  main = "Detail of Empty Region",
-  by.gr = FALSE,
-  xlim = c(1800, 2500),
-  ylim = c(0.0, 0.05))
+p <- surveySpectra(SrE2.IR, method = "iqr", by.gr = FALSE)
+p <- p + ggtitle("An Uninteresting Region") +
+  coord_cartesian(xlim = c(1800, 2500), ylim = c(0.0, 0.03))
+p
 
 ## -----------------------------------------------------------------------------
-SrE3.IR <- removeFreq(SrE2.IR,
-  rem.freq = SrE2.IR$freq > 1800 &
-  SrE2.IR$freq < 2500)
+SrE3.IR <- removeFreq(SrE2.IR, rem.freq = SrE2.IR$freq > 1800 & SrE2.IR$freq < 2500)
 sumSpectra(SrE3.IR)
 
 ## ----gaps, fig.cap = "Identifying gaps in a data set."------------------------
@@ -161,84 +140,65 @@ check4Gaps(SrE3.IR$freq, SrE3.IR$data[1,])
 HCA <- hcaSpectra(SrE3.IR, main = myt)
 
 ## ----classPCA, fig.cap = "Classical PCA scores.", sq.fig = TRUE---------------
-c_res <- c_pcaSpectra(SrE3.IR,
-  choice = "noscale")
-plotScores(SrE3.IR, c_res,
-  main = myt,
-  pcs = c(1,2),
-  ellipse = "rob",
-  tol = 0.01)
+c_res <- c_pcaSpectra(SrE3.IR, choice = "noscale")
+p <- plotScores(SrE3.IR, c_res, pcs = c(1,2), ellipse = "rob", tol = 0.01)
+p <- p + plot_annotation(myt)
+p
 
 ## ----robPCA, fig.cap = "Robust PCA scores.", sq.fig = TRUE--------------------
-r_res <- r_pcaSpectra(SrE3.IR,
-  choice = "noscale")
-plotScores(SrE3.IR, r_res,
-  main = myt,
-  pcs = c(1,2),
-  ellipse = "rob",
-  tol = 0.01)
+r_res <- r_pcaSpectra(SrE3.IR, choice = "noscale")
+p <- plotScores(SrE3.IR, r_res, pcs = c(1,2), ellipse = "rob", tol = 0.01)
+p
 
 ## ----OD, fig.cap = "Diagnostics: orthogonal distances.", sq.fig = TRUE--------
-diagnostics <- pcaDiag(SrE3.IR, c_res,
-  pcs = 2,
-  plot = "OD")
+p <- diagnostics <- pcaDiag(SrE3.IR, c_res, pcs = 2, plot = "OD")
+p
 
 ## ----SD, fig.cap = "Diagnostics: score distances.", sq.fig = TRUE-------------
-diagnostics <- pcaDiag(SrE3.IR, c_res,
-  pcs = 2,
-  plot = "SD")
+p <- diagnostics <- pcaDiag(SrE3.IR, c_res, pcs = 2, plot = "SD")
+p
 
 ## ----scree-1, fig.cap = "Scree plot."-----------------------------------------
-plotScree(c_res, main = myt)
+p <- plotScree(c_res) + ggtitle(myt)
+p
 
 ## ----scree-2, fig.cap = "Traditional style scree plot."-----------------------
-plotScree(c_res, style = "trad", main = myt)
+p <- plotScree(c_res, style = "trad") + ggtitle(myt)
+p
 
 ## ----boot, fig.cap = "Bootstrap analysis for no. of principal components.", sq.fig = TRUE----
-out <- cv_pcaSpectra(SrE3.IR,
-  pcs = 5)
+out <- cv_pcaSpectra(SrE3.IR, pcs = 5)
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  plotScoresRGL(SrE3.IR, c_res,
-#    main = "S. repens IR Spectra",
-#    leg.pos = "A",
+#  plotScoresRGL(SrE3.IR, c_res, main = "S. repens IR Spectra", leg.pos = "A",
 #    t.pos = "B") # not run - it's interactive!
 
 ## ----scores3D, fig.cap = "Plotting scores in 3D using plotScores3D.", sq.fig = TRUE----
-plotScores3D(SrE3.IR, c_res,
-  main = myt,
-  ellipse = FALSE)
+plotScores3D(SrE3.IR, c_res, main = myt, ellipse = FALSE)
 
 ## ----load1, fig.cap = "Loading plot.", sq.fig = TRUE--------------------------
-plotLoadings(SrE3.IR, c_res,
-  main = myt,
-  loads = c(1, 2),
-  ref = 1)
+p <- plotLoadings(SrE3.IR, c_res, loads = c(1, 2), ref = 1)
+p <- p  & ggtitle(myt) # see ?GraphicsOptions for why & is used
+p
 
 ## ----load2, fig.cap = "Plotting one loading vs. another.", sq.fig = TRUE------
-res <- plot2Loadings(SrE3.IR, c_res,
-  main = myt,
-  loads = c(1, 2),
-  tol = 0.002)
+p <- plot2Loadings(SrE3.IR, c_res, loads = c(1, 2), tol = 0.001)
+p <- p + ggtitle(myt)
+p
 
-## ----splot-1,  fig.cap = "s-Plot to identify influential frequencies.", sq.fig = TRUE----
-spt <- sPlotSpectra(SrE3.IR, c_res,
-  main = myt,
-  pc = 1,
-  tol = 0.001)
+## ----splot1,  fig.cap = "s-Plot to identify influential frequencies.", sq.fig = TRUE----
+p <- sPlotSpectra(SrE3.IR, c_res, pc = 1, tol = 0.001)
+p <- p + ggtitle(myt)
+p
 
-## ----splot-2,  fig.cap = "s-Plot detail.", sq.fig = TRUE----------------------
-spt <- sPlotSpectra(SrE3.IR, c_res,
-  main = "Detail of s-Plot",
-  pc = 1,
-  tol = 0.05,
-  xlim = c(-0.04, -0.01),
-  ylim = c(-1.05, -0.9))
+## ----splot2,  fig.cap = "s-Plot detail.", sq.fig = TRUE-----------------------
+p <- sPlotSpectra(SrE3.IR, c_res, pc = 1, tol = 0.001)
+p <- p + coord_cartesian(xlim = c(-0.04, -0.01), ylim = c(-1.05, -0.9))
+p <- p + ggtitle("Detail of s-Plot")
+p
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  hcaScores(SrE3.IR,  c_res,
-#    scores = c(1:5),
-#    main = myt)
+#  hcaScores(SrE3.IR,  c_res, scores = c(1:5), main = myt)
 
 ## ----aovPCA2, out.width = "80%", echo = FALSE, fig.cap = "aovPCA breaks the data into a series of submatrices."----
 knitr::include_graphics("aovPCA2.png")
@@ -247,24 +207,16 @@ knitr::include_graphics("aovPCA2.png")
 knitr::include_graphics("aovPCA1.png")
 
 ## ----mclust-1, fig.cap = "mclust chooses an optimal model.", results = "hide", sq.fig = TRUE----
-model <- mclustSpectra(SrE3.IR, c_res,
-  plot = "BIC",
-  main = myt)
+model <- mclustSpectra(SrE3.IR, c_res, plot = "BIC", main = myt)
 
 ## ----mclust-2, fig.cap = "mclust's thoughts on the matter.", results = "hide", sq.fig = TRUE----
-model <- mclustSpectra(SrE3.IR, c_res,
-  plot = "proj",
-  main = myt)
+model <- mclustSpectra(SrE3.IR, c_res, plot = "proj", main = myt)
 
 ## ----mclust-3, fig.cap = "Comparing mclust results to the TRUTH.", results = "hide", sq.fig = TRUE----
-model <- mclustSpectra(SrE3.IR, c_res,
-  plot = "errors",
-  main = myt,
-  truth = SrE3.IR$groups)
+model <- mclustSpectra(SrE3.IR, c_res, plot = "errors", main = myt, truth = SrE3.IR$groups)
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  # not run - it's interactive!
-#  mclust3dSpectra(SrE3.IR, c_res)
+#  mclust3dSpectra(SrE3.IR, c_res) # not run - it's interactive!
 
 ## ----colsym, echo = FALSE, fig.cap = "Color and symbol suggestions.", fig.width = 6, fig.height = 6----
 data(Col7)
