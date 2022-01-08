@@ -16,7 +16,7 @@ CSUdesc <- packageDescription("ChemoSpecUtils")
 # Stuff specifically for knitr:
 
 # Create a temp bib file w/citations of installed pkgs, on the fly
-knitr::write_bib(c("knitr", "mclust", "baseline", "hyperSpec", "ggplot2", "plotly"), file = "manuals.bib", prefix = "R_")
+tmp <- knitr::write_bib(c("knitr", "mclust", "baseline", "hyperSpec", "ggplot2", "plotly"), file = "manuals.bib", prefix = "R_")
 
 # Hook for figure size control
 knitr::opts_hooks$set(sq.fig = function(options) {
@@ -170,11 +170,7 @@ p
 out <- cv_pcaSpectra(SrE3.IR, pcs = 5)
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  plotScoresRGL(SrE3.IR, c_res, main = "S. repens IR Spectra", leg.pos = "A",
-#    t.pos = "B") # not run - it's interactive!
-
-## ----scores3D, fig.cap = "Plotting scores in 3D using plotScores3D.", sq.fig = TRUE----
-plotScores3D(SrE3.IR, c_res, main = myt, ellipse = FALSE)
+#  plot3dScores(SrE3.IR, c_res) # not run - it's interactive!
 
 ## ----load1, fig.cap = "Loading plot.", sq.fig = TRUE--------------------------
 p <- plotLoadings(SrE3.IR, c_res, loads = c(1, 2), ref = 1)
