@@ -1,7 +1,7 @@
-3dfed33daacf5962f8845166650c915e *DESCRIPTION
+5cb086a7bd1b9a4363a15acb0777c722 *DESCRIPTION
 2da9160595bd6f62c29afe04516a83f2 *NAMESPACE
 cd0842761f0631891a4b11d30333be23 *NEWS
-388745f25bc33ea563d4f5a590b0da67 *NEWS.md
+5960d147fdbd2c13b7294dea3be499d2 *NEWS.md
 b5c4037cb67fe6007c4a044a6a83c214 *R/ChemoSpec-package.R
 8e6958ff7de0b9af48ddb0f462463fb4 *R/DEFUNCT-plotScores3D.R
 2dd754c4e062478902c546b0a2ef5769 *R/DEFUNCT-plotScoresRGL.R
@@ -33,7 +33,7 @@ c7ce37932e1faa9eb4bd27ed7fc96296 *R/files2SpectraObject.R
 81a9641c2e821f02173547436045374f *R/hcaSpectra.R
 cdfaba4e31de3ec3caa3891998ba9283 *R/hmapSpectra.R
 2ccd9fdf4510e6d51801d427defd6626 *R/hypTestScores.R
-2dd2bceac17c438e9154e94613fb2902 *R/irlba_pcaSpectra.R
+662a2395f256c5965d4ca9ef3b2f6723 *R/irlba_pcaSpectra.R
 1b619f8972176fe783c4c4f42b86ec65 *R/isWholeNo.R
 f5ea17b1dc26ed091f083df1dc1f27df *R/labelExtremes3d.R
 5b5e2696b41385a5d690a70c0b7afe1c *R/makeEllipsoid.R
@@ -73,6 +73,7 @@ f5cc3c2a4e206bad85c04fe450a3570b *R/sumSpectraStub.R
 f1470fed9a277ae4e637c7a7c8b6bf63 *R/surveySpectra.R
 e88309d3ac8ea7decf867e0fa21a89f9 *R/surveySpectra2.R
 58d8b34a343f6d9ef6d8bd5ce9498502 *R/updateGroupsStub.R
+88e5b770860ab8305f0bf47c7b6969ed *README.md
 b874f908144dc3aebb112f10362e5729 *build/vignette.rds
 27d2a51d5f4a9fdd5e9d5d082818636b *data/SrE.IR.RData
 7ed0626286afcd7995501b1e8e2f5eba *data/SrE.NMR.RData
@@ -82,7 +83,7 @@ e8547c106901413de14f5de6d2bafde0 *data/datalist
 e7a49bca8d17f61de344927c41de92d4 *data/metMUD2.RData
 e5375ae51a091f34ca8ba37c788e8e65 *inst/doc/ChemoSpec.R
 ab5c428928fa7c262ca9fc21228a1c29 *inst/doc/ChemoSpec.Rmd
-b7d95c87cee6578b873157200357c995 *inst/doc/ChemoSpec.pdf
+acff090f2231bb004ff56fbf6f78298d *inst/doc/ChemoSpec.pdf
 ddc0b80fa6dc58028d734fff5bb83e88 *inst/extdata/PCRF.jdx
 84b8bcbb4939380ceb8d0468f9f9d8b7 *inst/extdata/pS.css
 481b8cf0d5a29beb52ee0772f929062b *inst/extdata/pS_brushNguides.js
@@ -111,12 +112,13 @@ e9bde1174606bfbc4ced8a2e7604d33d *man/clupaSpectra.Rd
 93227e00ae487011ba42f3afa7cc5b68 *man/conColScheme.Rd
 5a2baaf0afd7b6d4309cb76e705b8b78 *man/cv_pcaSpectra.Rd
 7c1fb34f4e48a464586a95f9a46673d9 *man/evalClusters.Rd
+e7d38dc06197313f66eadd298924f71c *man/figures/Banner.png
 f05de1f434bec5317925fa639aa7cfd9 *man/files2SpectraObject.Rd
 6a71b17958d03e5283c202d1ddd06f83 *man/hcaScores.Rd
 738c1b1807cee3db80af5736ea775fb0 *man/hcaSpectra.Rd
 35d6d763e093ff7c191bfcb685e3ef1c *man/hmapSpectra.Rd
 ac7cb68c60d54a12d2f7e820083c7d16 *man/hypTestScores.Rd
-f21fd4b10a3d268b5541c2a5b549c7ad *man/irlba_pcaSpectra.Rd
+7998c3e043b022dbb71b8fc9e95d448f *man/irlba_pcaSpectra.Rd
 a96e84a99d615a2b311325b5629e2cb3 *man/loopThruSpectra.Rd
 df84e36d9452601f8542b810cfe636ae *man/mclust3dSpectra.Rd
 08076a15f18df10bb4697c3cfe047188 *man/mclustSpectra.Rd
