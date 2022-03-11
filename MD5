@@ -1,10 +1,10 @@
-5cb086a7bd1b9a4363a15acb0777c722 *DESCRIPTION
+b38f6812c4dad4f5490b9aad53e6522b *DESCRIPTION
 2da9160595bd6f62c29afe04516a83f2 *NAMESPACE
 cd0842761f0631891a4b11d30333be23 *NEWS
-5960d147fdbd2c13b7294dea3be499d2 *NEWS.md
+91fdfedd88ba4ccb29f08b8e61c5fa70 *NEWS.md
 b5c4037cb67fe6007c4a044a6a83c214 *R/ChemoSpec-package.R
 8e6958ff7de0b9af48ddb0f462463fb4 *R/DEFUNCT-plotScores3D.R
-2dd754c4e062478902c546b0a2ef5769 *R/DEFUNCT-plotScoresRGL.R
+e2baea31da054f54ebf745015a785e58 *R/DEFUNCT-plotScoresRGL.R
 66dbf4f94376321989ead63da813218e *R/DollarNames.R
 a7fee1d8d4fd75f5cea02d8a30b0b70e *R/LoopThruSpectra.R
 55a895caf067ecd553629ee90bb00ae4 *R/MUD.R
@@ -26,7 +26,7 @@ da55b0b4a51d64363bbb8d3f83ef0a42 *R/cleanArgs.R
 7f7e3e2d40851a1fa04ce6c812886282 *R/colorSymbolStub.R
 6cfac040360d3094c6de6bc9b907838f *R/conColSchemeStub.R
 34429084546cb9fbac8307a92ff0d83f *R/coordProjCS.R
-3375b445e347451ddb235671615215f8 *R/cv_pcaSpectra.R
+e427b7257fbbac31cb6de355d3fb90d3 *R/cv_pcaSpectra.R
 3a31282b65315cf7413de442c3e3b9b1 *R/evalClusters.R
 c7ce37932e1faa9eb4bd27ed7fc96296 *R/files2SpectraObject.R
 23ee62b22beeb18e83f37dd73a2e4592 *R/hcaScoresStub.R
@@ -83,7 +83,7 @@ e8547c106901413de14f5de6d2bafde0 *data/datalist
 e7a49bca8d17f61de344927c41de92d4 *data/metMUD2.RData
 e5375ae51a091f34ca8ba37c788e8e65 *inst/doc/ChemoSpec.R
 ab5c428928fa7c262ca9fc21228a1c29 *inst/doc/ChemoSpec.Rmd
-acff090f2231bb004ff56fbf6f78298d *inst/doc/ChemoSpec.pdf
+6f29ae7205e7c37c2b5a2ccee78970b4 *inst/doc/ChemoSpec.pdf
 ddc0b80fa6dc58028d734fff5bb83e88 *inst/extdata/PCRF.jdx
 84b8bcbb4939380ceb8d0468f9f9d8b7 *inst/extdata/pS.css
 481b8cf0d5a29beb52ee0772f929062b *inst/extdata/pS_brushNguides.js
@@ -130,7 +130,7 @@ c6303d8b566a399ca17bf161bf514d45 *man/plot3dScores.Rd
 0617427f29ed5c83a96f1e2852ef7062 *man/plotLoadings.Rd
 02ec32772a65242f46f7f032a59fc7a9 *man/plotScores.Rd
 98e352c75495e6f58e4630ec9f4f4a4e *man/plotScores3D.Rd
-96ce089b299d07cb4bc188992c0e4552 *man/plotScoresRGL.Rd
+b0bd8cf86ef409aec26406ae5281cbd2 *man/plotScoresRGL.Rd
 3b9e3a0efd6adfa0f1001964afeb4d25 *man/plotScree.Rd
 6ce626b80a79fa0fc7dedc0178a60452 *man/plotSpectra.Rd
 54b98bc60a70cb8e515d9f2db3eddc16 *man/plotSpectraDist.Rd
