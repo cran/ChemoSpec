@@ -1,8 +1,8 @@
 Package: ChemoSpec
 Type: Package
 Title: Exploratory Chemometrics for Spectroscopy
-Version: 6.1.8
-Date: 2023-06-03
+Version: 6.1.9
+Date: 2023-06-06
 Authors@R: c(
     person("Bryan A.", "Hanson",
       role = c("aut", "cre"), email =
@@ -45,7 +45,7 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-06-03 17:30:08 UTC; bryanhanson
+Packaged: 2023-06-07 00:51:19 UTC; bryanhanson
 Author: Bryan A. Hanson [aut, cre] (<https://orcid.org/0000-0003-3536-8246>),
   Mike Bostock [cph, ctb] (author of the d3.js library used by
     plotSpectraJS, http://d3js.org),
@@ -53,4 +53,4 @@ Author: Bryan A. Hanson [aut, cre] (<https://orcid.org/0000-0003-3536-8246>),
   Tejasvi Gupta [ctb] (author of ggplot2 and plotly graphics)
 Maintainer: Bryan A. Hanson <hanson@depauw.edu>
 Repository: CRAN
-Date/Publication: 2023-06-04 14:10:05 UTC
+Date/Publication: 2023-06-07 11:00:02 UTC
