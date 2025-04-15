@@ -44,22 +44,22 @@ knitr::opts_chunk$set(fig.align = "center", sq.fig = FALSE,
 
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  source("My_First_ChemoSpec.R")
+# source("My_First_ChemoSpec.R")
 
 ## ----workflow, out.width = "80%", echo = FALSE, fig.cap = "A typical workflow.  For a given data set, some steps may be omitted and the order changed.  That is part of what is meant by exploratory data analysis!"----
 knitr::include_graphics("MetabPreProcess.png")
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  ssp <- files2SpectraObject(
-#    gr.crit = c("sspA", "sspB"),
-#    gr.cols = c("red", "blue"),
-#    freq.unit = "ppm",
-#    int.unit = "peak intensity",
-#    descrip = "Subspecies Study",
-#    out.file = "subsp")
+# ssp <- files2SpectraObject(
+#   gr.crit = c("sspA", "sspB"),
+#   gr.cols = c("red", "blue"),
+#   freq.unit = "ppm",
+#   int.unit = "peak intensity",
+#   descrip = "Subspecies Study",
+#   out.file = "subsp")
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  SubspeciesNMR <- loadObject("subsp.RData")
+# SubspeciesNMR <- loadObject("subsp.RData")
 
 ## -----------------------------------------------------------------------------
 data(SrE.IR) # makes the data available
@@ -170,7 +170,7 @@ p
 out <- cv_pcaSpectra(SrE3.IR, pcs = 5)
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  plot3dScores(SrE3.IR, c_res) # not run - it's interactive!
+# plot3dScores(SrE3.IR, c_res) # not run - it's interactive!
 
 ## ----load1, fig.cap = "Loading plot.", sq.fig = TRUE--------------------------
 p <- plotLoadings(SrE3.IR, c_res, loads = c(1, 2), ref = 1)
@@ -194,7 +194,7 @@ p <- p + ggtitle("Detail of s-Plot")
 p
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  hcaScores(SrE3.IR,  c_res, scores = c(1:5), main = myt)
+# hcaScores(SrE3.IR,  c_res, scores = c(1:5), main = myt)
 
 ## ----aovPCA2, out.width = "80%", echo = FALSE, fig.cap = "aovPCA breaks the data into a series of submatrices."----
 knitr::include_graphics("aovPCA2.png")
@@ -212,7 +212,7 @@ model <- mclustSpectra(SrE3.IR, c_res, plot = "proj", main = myt)
 model <- mclustSpectra(SrE3.IR, c_res, plot = "errors", main = myt, truth = SrE3.IR$groups)
 
 ## ----results = "hide", eval = FALSE-------------------------------------------
-#  mclust3dSpectra(SrE3.IR, c_res) # not run - it's interactive!
+# mclust3dSpectra(SrE3.IR, c_res) # not run - it's interactive!
 
 ## ----colsym, echo = FALSE, fig.cap = "Color and symbol suggestions.", fig.width = 6, fig.height = 6----
 data(Col7)
