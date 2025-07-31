@@ -1,8 +1,13 @@
-# ChemoSpec 6.2.0 2025-06-15
+# ChemoSpec 6.3.0 2025-07-31
 ## Misc
-* At CRAN request, modified unit tests, examples to better conform to noSuggests standard.
+* Convert vignette to .Qmd for static formatting, and use a .Rnw to process it.  This allows a number of Suggests packages to be removed from DESCRIPTION.
+* Note: version 6.2.0 was on CRAN for a month or so w/o a vignette.
+
+# ChemoSpec 6.1.12 2025-06-14
+## Misc
+* At CRAN request, modified unit tests, examples and vignette to better conform to noSuggests standard.
 * New internal function `.chkReqPkgs()` to facilitate better defensive programming.
-* Removed vignette to keep package from being archived.  Hopefully it will be back soon.
+* No user facing changes.
 
 # ChemoSpec 6.1.11 2025-04-09
 ## Misc
